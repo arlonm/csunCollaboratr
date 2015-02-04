@@ -1,0 +1,130 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+html, body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.logo{
+    margin-top: 0px;
+    padding-top:0px;
+
+}
+.bottom-section
+{
+    margin-bottom:0px;
+    padding-bottom:0px;
+    
+    width:100%;
+        background-color: #272323;
+}
+#page-bottom
+{
+    min-height: 250px;
+    color:ghostwhite;
+    background-color:darkgray;
+}
+#lowest-section{
+    min-height: 250px;
+    background-color: #272323;
+    color:ghostwhite;
+}
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+#roomlistwrapper {
+    overflow-y:scroll;
+    max-height:500px;
+}
+
+#side-bar, #collaboration-space
+{
+    min-height: 900px;
+    position:relative;
+}
+
+#collaboration-space{
+
+}
+.module{
+    position:absolute;
+}
+#collaboration-space{
+    border-left:solid;
+    border-left-width:1px;
+    border-left-color:#bebebe;
+    position:relative;
+    width:100%;
+    height:100%;
+    overflow:auto;
+}
+.ui-dialog-titlebar { height: 1.3em; }
+
+#user-space, #tool-space {
+    min-height:50%;
+    max-height:50%;
+    overflow-y:auto;
+}
+#user-list, #tool-list
+{
+
+    min-height:100%;
+    overflow-y:auto;
+}

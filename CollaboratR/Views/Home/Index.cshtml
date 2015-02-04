@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<!-- PAGE TOP -->
+<section class="page-title">
+    <div class="container">
+        <header>
+            <ul class="breadcrumb">
+                <!-- breadcrumb -->
+                <li class="active"><a href="#">Home</a></li>
+            </ul><!-- /breadcrumb -->
+            <h2>
+                <!-- Page Title -->
+                Welcome to <strong>CollaboratR</strong>
+            </h2><!-- /Page Title -->
+            <h6>Where you can collaborate, chat, and share information in <strong>real time</strong></h6>
+        </header>
+    </div>
+    <br />
+</section>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-lg-12">
+        <h4 class="bold">Popular Rooms</h4>
+        <div id="roomlistwrapper">
+            <div id="roomlist" class="list-group">
+                <img src="~/Assets/images/ajax-loader-big.gif" id="room-loader" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+        <br />
+        <!-- CALLOUT -->
+        <div class="alert alert-default fade in">
+            <div class="row">
+                <div class="col-md-9 col-sm-9">
+                    <!-- left text -->
+                    <h4>Check out <strong><a>CollaboratR</a></strong></h4>
+                    <p>
+                        New to CollaboratR? Check our <a>FAQ</a> section for <a>new users.</a>
+                    </p>
+                </div><!-- /left text -->
+                <div class="col-md-3 col-sm-3 text-right">
+                    <!-- right btn -->
+                    <a href="#purchase" rel="nofollow" target="_blank" class="btn btn-primary btn-lg">Try it NOW!</a>
+                </div><!-- /right btn -->
+            </div>
+        </div>
+        <!-- /CALLOUT -->
+</div>
+
+
+
+
+<!-- /CONTENT -->
+@section scripts{
+    @*Signal R*@
+    <script src="~/Scripts/jquery.signalR-2.1.2.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var collaborationHub = $.connection.collaborationHub
+            var connection = $.connection.hub;
+            //A client function that populates the user's list with current popular rooms
+            //meant for frontpage functionality
+            collaborationHub.client.broadcastRooms = function (allRooms) {
+                for (var i = 0; i < allRooms.length; i++)
+                {
+                    //Foreach room that gets broadcasted append a new list item
+                    $('#roomlist').append('<a href="/Room/Join?RoomId=' + allRooms[i].Value.RoomGuid +
+                        '" class="list-group-item room-link"><span class="badge">' +
+                        allRooms[i].Value.UserCount +
+                        ' CollaboratRs</span><strong>' + allRooms[i].Value.RoomName +
+                        '</strong> - ' + allRooms[i].Value.RoomDescription + '</a>').hide().fadeIn(200);
+                }
+            }
+            //Define callback on established connection
+            $.connection.hub.start().done(function () {
+                $('#room-loader').fadeOut(200);
+                //server callbacks
+                collaborationHub.server.listTopRooms();
+
+                var auth = '@Request.IsAuthenticated'
+
+                if (auth == 'False') {
+                    $('.room-link').unbind('click');
+                    $('.room-link').click(function (e) {
+                        e.preventDefault();
+                        var name = window.prompt('Enter a nickname!', 'User' + parseInt((random() * 100000) + 1));
+                        var newloc = $(this).attr('href') + '&Username=' + name;
+                        window.location.href = newloc;
+                    });
+                }
+            });
+            
+        });
+    </script>
+}

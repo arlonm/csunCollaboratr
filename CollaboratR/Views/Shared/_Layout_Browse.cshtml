@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="Collaboration,Document,Meeting" />
+    <meta name="description" content="" />
+    <meta name="Author" content="Tyler Thomas" />
+    @*mobile settings*@
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+    @*Favicon*@
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    @*WEB FONTS*@
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+    @*CORE CSS*@
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/sky-forms.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/weather-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/owl-carousel/owl.pack.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/flexslider.css" rel="stylesheet" type="text/css" />
+    @*THEME CSS*@
+    <link href="~/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/header-default.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/footer-default.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/color_scheme/red.css" rel="stylesheet" type="text/css" id="color_scheme" />
+
+    @* Morenizr *@
+    <script type="text/javascript" src="~/assets/plugins/modernizr.min.js"></script>
+    <!--[if lte IE 8]>
+    <![endif]-->
+    <title>@ViewBag.Title - CollaboratR</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="margin-top:0px; padding-top:0px" class="smoothscroll">
+    <div id="wrapper">
+        <div id="header">
+            <!-- class="sticky" for sticky menu -->
+            <!-- Top Bar -->
+            <!-- /Top Bar -->
+            <!-- Top Nav -->
+            <header id="topNav">
+                @*<div class="container">*@
+                <div class="">
+                    <!-- Mobile Menu Button -->
+                    <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="~/Home/Index">
+                        CollaboratR
+                    </a>
+                    <!-- /Search -->
+                    <!-- Top Nav -->
+                    <div class="navbar-collapse nav-main-collapse collapse">
+                        <nav class="nav-main">
+                            <ul id="topMain" class="nav nav-pills nav-main">
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#">Collaborate <span>Create a session!</span></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a>Create a Room</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                @if (Request.IsAuthenticated)
+                                {
+                                    <li><a href="~/Account/Logout">Log out<span>Goodbye!</span></a></li>
+                                    @*<li class="nav nav-pills nav-right">@Html.ActionLink("Log out", "Logout", "Account")<span>Goodbye!</span></li>*@
+                                }
+                                else
+                                {
+                                    <li><a data-toggle="modal" class="nav nav-pills nav-right" data-target="#login-modal">Log in <span>Have an account?</span></a></li>
+                                    <li><a href="/Account/Register" class="nav nav-pills nav-right">Register <span>Need one?</span></a></li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- /Top Nav -->
+                </div><!-- /.container -->
+            </header>
+            <!-- /Top Nav -->
+        </div>
+        @RenderBody()
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- col #1 -->
+                    <div class="logo_footer dark col-md-3">
+                        @*<img alt="" src="/assets/images/logo_footer.png" height="50" class="logo" />*@
+                        <p class="block">
+                            &bull; <a href="#">About us</a><br />
+                            &bull; <a href="#">Contact</a><br />
+                            &bull; <a href="#">Collaborate Now</a><br />
+                            &bull; <a href="#">Support Us</a><br />
+                        </p>
+                        <p class="block">
+                            <!-- social -->
+                            <a href="#" class="social fa fa-facebook"></a>
+                            <a href="#" class="social fa fa-twitter"></a>
+                            <a href="#" class="social fa fa-google-plus"></a>
+                            <a href="#" class="social fa fa-linkedin"></a>
+                        </p><!-- /social -->
+                    </div>
+                    <!-- /col #1 -->
+                    <!-- col #2 -->
+                    <div class="spaced col-md-3 col-sm-4 hidden-xs">
+                        <h4>Learn about <strong>Partnership</strong></h4>
+                        <ul class="list-unstyled">
+                            @*<li>
+                                    <a class="block" href="#">Here is some stuff</a>
+                                    <small>June 29, 2014</small>
+                                </li>
+                                <li>
+                                    <a class="block" href="#"></a>
+                                    <small>June 29, 2014</small>
+                                </li>*@
+                            <li>
+                                <a class="block" href="#">Future Partners, Click here.</a>
+                                <small></small>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /col #2 -->
+                    <!-- col #3 -->
+                    <div class="spaced col-md-3 col-sm-4 hidden-xs">
+                        <h4>Support Us <strong>Donate Now</strong></h4>
+                        <ul class="list-unstyled fsize13">
+                            <li>
+                                <a class="block" href="#">Help us keep CollaboratR alive!</a>
+                                <small></small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="copyright">
+                <div class="container text-center fsize12">
+                    <a href="#" target="_blank" title="bootstrap themes &amp; templates" class="copyright">CollaboratR</a> &bull; All Right Reserved &copy;&nbsp;
+                    <a href="page-privacy.html" class="fsize11">Privacy Policy</a> &bull;
+                    <a href="page-terms.html" class="fsize11">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+        <!-- /FOOTER -->
+        <a href="#" id="toTop"></a>
+    </div><!-- /#wrapper -->
+    <!-- Modal -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Log in</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Log in to an existing account. If you do not have one @Html.ActionLink("register one ", "", "") today!</p>
+                    <p id="msg-general" class=" alert-danger danger" hidden>This should be hidden</p>
+                    <p id="msg-loginname" class="alert-danger danger" hidden>This should be hidden</p>
+                    <input type="text" class="form-control" id="txt-loginname" placeholder="Username or Email" /><br />
+                    <p id="msg-password" class="alert-danger danger" hidden>This should be hidden</p>
+                    <input type="password" class="form-control" id="txt-password" placeholder="Password" /><br />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btn-login">Log in</button>
+                    <img src="~/assets/images/ajax-loader.gif" id="login-loader" hidden />
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <!-- JAVASCRIPT FILES -->
+    <script type="text/javascript" src="~/assets/plugins/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery.isotope.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/masonry.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/knob/js/jquery.knob.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/flexslider/jquery.flexslider-min.js"></script>
+
+    @RenderSection("scripts", required: false)
+    @*Google Analytics do not remove*@
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-56243141-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</body>
+</html>

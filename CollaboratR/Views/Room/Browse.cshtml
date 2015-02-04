@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Browse rooms";
+    Layout = "~/Views/Shared/_Layout_Browse.cshtml";
+}
+
+    <div class="row">
+        <div class="col-md-12" style="min-height:900px;">
+            <div style="text-align: center; padding: 10px; background: #DDD;color: #A94545;font-size: 17px;" >Top Ten Rooms</div>
+            <div id="topRooms" class="list-group">
+                <div id="room-loader" style="text-align:center; margin-top:5%;" >
+                    <img src="~/Assets/images/ajax-loader-big.gif" />
+                </div>
+                </div>
+        </div>
+    </div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.signalR-2.1.2.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        var collaborationHub = $.connection.collaborationHub
+
+        //make a list from the rooms returned
+
+        collaborationHub.client.broadcastRooms = function (topTenRooms) {
+            console.log('Pre: '+topTenRooms);
+            for (var key in topTenRooms) {
+                if (topTenRooms.hasOwnProperty(key)) {//extra check???
+                    var thisRoom = topTenRooms[key].Value;//This has to be tried out
+                    console.log(thisRoom);
+                    var desc = (thisRoom.hasOwnProperty('RoomDescription') ? thisRoom.RoomDescription : 'No description provided. Join and find out!');
+                    $('#topRooms').append('<a href="/Room/Join?RoomId='+thisRoom.RoomGuid+'" class="list-group-item">' +
+                    '<h4 class="list-group-item-heading">'+thisRoom.RoomName+'</h4>' +
+                    '<p class="list-group-item-text">' + desc + '</p>' +
+                    '</a>').hide().fadeIn(200);
+                }
+            }
+
+            $('#topRooms').find('.list-group-item').hover(
+                function () {
+                    $(this).find('h4').css('color', '#A94545');
+                }, function () {
+                    $(this).find('h4').css('color', '#333');
+                }
+            );
+        }
+
+        //Define callback on established connection
+        $.connection.hub.start().done(function () {
+            $('#room-loader').fadeOut(200);
+            //server callbacks -- get the rooms here
+            //is this method in the hub?? , used the same name as John  has
+
+            collaborationHub.server.listTopRooms();
+
+            var auth = '@Request.IsAuthenticated'
+
+            if (auth == 'False') {
+                //Not sure what this is
+            }
+        });
+    });
+</script>
+
+}

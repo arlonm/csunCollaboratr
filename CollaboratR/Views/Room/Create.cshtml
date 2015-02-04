@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+<section>
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <form action="" class="sky-form boxed">
+                    <header>Create a Room</header>
+                    <fieldset>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append icon-user"></i>
+                                <input type="text" name="username" placeholder="Room name" id="rName">
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="textarea">
+                                <i class="icon-append icon-envelope-alt"></i>
+                                <textarea rows="5" id="rDesc"placeholder="Description"></textarea>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="checkbox"><input type="checkbox" name="Private" id="rPrivate"><i></i>Make this room private</label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append icon-lock"></i>
+                                <input type="password" id="rPwd" name="password" placeholder="Password">
+                            </label>
+                        </section>
+                        <fieldset>
+                            <p id="rNotify" style="display:none;" ></p>
+                        </fieldset>
+                    </fieldset>
+                    <footer>
+                        <button id="roomCreate" type="submit" class="button" data-loading-text="Creating..." >Create</button>
+                        <button id="cancelCreate" type="submit" class="button" >Cancel</button>
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/jquery-ui.js"></script>
+    <!-- Signal R -->
+    <script src="~/Scripts/jquery.signalR-2.1.2.js"></script>
+    <script src="~/signalr/hubs"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            var collaborationHub = $.connection.collaborationHub;
+
+            //define the client side callback for the server method that creates the room
+            collaborationHub.client.broadcastCreateRoomResult = function(roomGuid, userGuid, adminKey){
+
+                var roomCreate_form = document.createElement('FORM');
+                roomCreate_form.name = 'roomCreateForm';
+                roomCreate_form.method = 'POST';
+                roomCreate_form.action = '/Room/Join';//is this right?
+
+                var my_tb = document.createElement('INPUT');
+                my_tb.type = 'HIDDEN';
+                my_tb.name = 'roomGuid';
+                my_tb.value = roomGuid;
+                roomCreate_form.appendChild(my_tb);
+
+                my_tb = document.createElement('INPUT');
+                my_tb.type = 'HIDDEN';
+                my_tb.name = 'userGuid';
+                my_tb.value = userGuid;
+                roomCreate_form.appendChild(my_tb);
+
+                my_tb = document.createElement('INPUT');
+                my_tb.type = 'HIDDEN';
+                my_tb.name = 'adminKey';
+                my_tb.value = adminKey;
+                roomCreate_form.appendChild(my_tb);
+
+                document.body.appendChild(roomCreate_form);
+
+                roomCreate_form.submit();
+                //after submit, im assuming the server function will redirect or call a client side signalR function to take user to the right place
+
+            }
+
+            $.connection.hub.start().done(function() {
+
+                //these will bind after the hubs setup
+                $('#roomCreate').click(function (event) {
+                    event.preventDefault();
+                    if ($(this).hasClass('busy')) return false;
+
+                    //Disable the btn, show loading indicator
+                    $('#rNotify').text('').hide();
+                    $(this).addClass('busy');
+
+                    var rName = $('#rName').val().trim();
+                    var rDesc = $('#rDesc').val();
+                    var rPwd = $('#rPwd').val();
+                    var rPrivate = $('#rPrivate').prop('checked');
+                    //name is always required needs to be greater than 4
+                    if (rName.length < 4) {
+                        $('#rNotify').text('Please provide a name that contains 4 or more characters.').show();
+                        $(this).removeClass('busy');
+                        return false;
+                    }
+                    //if the private checkbox is ticked ensure password is provided - not worrying about pwd complexity right now
+                    if (rPrivate == true) {
+                        if (rPwd.length < 6) {
+                            $('#rNotify').text('If the room is private, a password that contains 6 or more characters is required.').show();
+                            $(this).removeClass('busy');
+                            return false;
+                        }
+                        /*if (/^[A-Za-z0-9]*$/.test(rPwd) == false) {
+                            return false;
+                        }*/
+                    }
+                    else {//else the rooms public, so make the pwd field null
+                        rPwd = null;
+                    }
+
+                    //call the hub function
+                    collaborationHub.server.createRoom(rName, rDesc, rPwd);
+                    $(this).removeClass('busy');
+                });
+
+                //cancel, back to home
+                $('#cancelCreate').click(function (event) {
+                    event.preventDefault();
+                    window.location = window.location.origin + '/Home';
+                });
+            });
+        });
+    </script>
+}

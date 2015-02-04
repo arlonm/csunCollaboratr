@@ -1,0 +1,1272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D3679836-9894-49C0-A8A9-714A708D187F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CollaboratR</RootNamespace>
+    <AssemblyName>CollaboratR</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net">
+      <HintPath>..\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="DevOne.Security.Cryptography.BCrypt">
+      <HintPath>..\packages\BCrypt.1.0.0.0\lib\DevOne.Security.Cryptography.BCrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="DataTools.cs" />
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="Models\ModuleModel.cs" />
+    <Compile Include="Models\RoomModel.cs" />
+    <Compile Include="Models\RoomUserModel.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Hubs\CollaborationHub.cs" />
+    <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\BusinessObject.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\RegistrationModel.cs" />
+    <Compile Include="Repositories\AccountRepository.cs" />
+    <Compile Include="Repositories\IAccountRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\RoomViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\images\ajax-loader-big.gif" />
+    <Content Include="Assets\css\animate.css" />
+    <Content Include="Assets\css\bootstrap-colorpicker.css" />
+    <Content Include="Assets\css\bootstrap-form-slider.css" />
+    <Content Include="Assets\css\color_scheme\blue.css" />
+    <Content Include="Assets\css\color_scheme\brown.css" />
+    <Content Include="Assets\css\color_scheme\darkblue.css" />
+    <Content Include="Assets\css\color_scheme\darkgreen.css" />
+    <Content Include="Assets\css\color_scheme\green.css" />
+    <Content Include="Assets\css\color_scheme\lightgrey.css" />
+    <Content Include="Assets\css\color_scheme\orange.css" />
+    <Content Include="Assets\css\color_scheme\pink.css" />
+    <Content Include="Assets\css\color_scheme\red.css" />
+    <Content Include="Assets\css\color_scheme\yellow.css" />
+    <Content Include="Assets\css\daterangepicker-bs3.css" />
+    <Content Include="Assets\css\essentials.css" />
+    <Content Include="Assets\css\flexslider.css" />
+    <Content Include="Assets\css\font-awesome.css" />
+    <Content Include="Assets\css\footer-default.css" />
+    <Content Include="Assets\css\header-2.css" />
+    <Content Include="Assets\css\header-3.css" />
+    <Content Include="Assets\css\header-4.css" />
+    <Content Include="Assets\css\header-5.css" />
+    <Content Include="Assets\css\header-below.css" />
+    <Content Include="Assets\css\header-default.css" />
+    <Content Include="Assets\css\header-transparent.css" />
+    <Content Include="Assets\css\layerslider.css" />
+    <Content Include="Assets\css\layout-blog.css" />
+    <Content Include="Assets\css\layout-dark.css" />
+    <Content Include="Assets\css\layout-shop.css" />
+    <Content Include="Assets\css\layout.css" />
+    <Content Include="Assets\css\line-icons.css" />
+    <Content Include="Assets\css\revolution-slider.css" />
+    <Content Include="Assets\css\sky-forms.css" />
+    <Content Include="Assets\css\weather-icons.min.css" />
+    <Content Include="Assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Assets\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Assets\images\1x1.png" />
+    <Content Include="Assets\images\avatar.png" />
+    <Content Include="Assets\images\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="Assets\images\bootstrap-colorpicker\alpha.png" />
+    <Content Include="Assets\images\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="Assets\images\bootstrap-colorpicker\hue.png" />
+    <Content Include="Assets\images\bootstrap-colorpicker\saturation.png" />
+    <Content Include="Assets\images\boxed_background\1.jpg" />
+    <Content Include="Assets\images\boxed_background\1_thumb.jpg" />
+    <Content Include="Assets\images\boxed_background\2.jpg" />
+    <Content Include="Assets\images\boxed_background\2_thumb.jpg" />
+    <Content Include="Assets\images\boxed_background\3.jpg" />
+    <Content Include="Assets\images\boxed_background\3_thumb.jpg" />
+    <Content Include="Assets\images\boxed_background\4.jpg" />
+    <Content Include="Assets\images\boxed_background\4_thumb.jpg" />
+    <Content Include="Assets\images\boxed_background\credits.txt" />
+    <Content Include="Assets\images\boxed_background\none.jpg" />
+    <Content Include="Assets\images\caption_bg.png" />
+    <Content Include="Assets\images\cc\American-Express.png" />
+    <Content Include="Assets\images\cc\Cash.png" />
+    <Content Include="Assets\images\cc\Cirrus.png" />
+    <Content Include="Assets\images\cc\credit.txt" />
+    <Content Include="Assets\images\cc\Delta.png" />
+    <Content Include="Assets\images\cc\Diners-Club.png" />
+    <Content Include="Assets\images\cc\Discover-Network.png" />
+    <Content Include="Assets\images\cc\Discover.png" />
+    <Content Include="Assets\images\cc\Dollar.png" />
+    <Content Include="Assets\images\cc\eCheck.png" />
+    <Content Include="Assets\images\cc\Euro.png" />
+    <Content Include="Assets\images\cc\Gift-Card.png" />
+    <Content Include="Assets\images\cc\JCB.png" />
+    <Content Include="Assets\images\cc\Maestro.png" />
+    <Content Include="Assets\images\cc\Mastercard.png" />
+    <Content Include="Assets\images\cc\PayPal.png" />
+    <Content Include="Assets\images\cc\Pound.png" />
+    <Content Include="Assets\images\cc\Solo.png" />
+    <Content Include="Assets\images\cc\Switch.png" />
+    <Content Include="Assets\images\cc\Visa.png" />
+    <Content Include="Assets\images\cc\Wirecard.png" />
+    <Content Include="Assets\images\demo\about_1.jpg" />
+    <Content Include="Assets\images\demo\about_1_h.jpg" />
+    <Content Include="Assets\images\demo\about_2.jpg" />
+    <Content Include="Assets\images\demo\about_2_h.jpg" />
+    <Content Include="Assets\images\demo\b2.png" />
+    <Content Include="Assets\images\demo\blue.jpg" />
+    <Content Include="Assets\images\demo\blur.jpg" />
+    <Content Include="Assets\images\demo\boy.jpg" />
+    <Content Include="Assets\images\demo\brands\1.jpg" />
+    <Content Include="Assets\images\demo\brands\2.jpg" />
+    <Content Include="Assets\images\demo\brands\3.jpg" />
+    <Content Include="Assets\images\demo\brands\4.jpg" />
+    <Content Include="Assets\images\demo\brands\5.jpg" />
+    <Content Include="Assets\images\demo\brands\6.jpg" />
+    <Content Include="Assets\images\demo\brands\7.jpg" />
+    <Content Include="Assets\images\demo\brands\8.jpg" />
+    <Content Include="Assets\images\demo\captcha.jpg" />
+    <Content Include="Assets\images\demo\careers.jpg" />
+    <Content Include="Assets\images\demo\color_scheme.png" />
+    <Content Include="Assets\images\demo\color_scheme_hover.png" />
+    <Content Include="Assets\images\demo\credits.txt" />
+    <Content Include="Assets\images\demo\desk.jpg" />
+    <Content Include="Assets\images\demo\desktop.png" />
+    <Content Include="Assets\images\demo\desktop_empty.png" />
+    <Content Include="Assets\images\demo\desktop_slider.png" />
+    <Content Include="Assets\images\demo\email\e1.jpg" />
+    <Content Include="Assets\images\demo\email\e10.jpg" />
+    <Content Include="Assets\images\demo\email\e2.jpg" />
+    <Content Include="Assets\images\demo\email\e3.jpg" />
+    <Content Include="Assets\images\demo\email\e4.jpg" />
+    <Content Include="Assets\images\demo\email\e5.jpg" />
+    <Content Include="Assets\images\demo\email\e6.jpg" />
+    <Content Include="Assets\images\demo\email\e7.jpg" />
+    <Content Include="Assets\images\demo\email\e8.jpg" />
+    <Content Include="Assets\images\demo\email\e9.jpg" />
+    <Content Include="Assets\images\demo\fashion\1.jpg" />
+    <Content Include="Assets\images\demo\fashion\2.jpg" />
+    <Content Include="Assets\images\demo\fashion\3.jpg" />
+    <Content Include="Assets\images\demo\fashion\4.jpg" />
+    <Content Include="Assets\images\demo\fashion\5.jpg" />
+    <Content Include="Assets\images\demo\fashion\6.jpg" />
+    <Content Include="Assets\images\demo\fashion\7.jpg" />
+    <Content Include="Assets\images\demo\fashion\8.jpg" />
+    <Content Include="Assets\images\demo\fashion\9.jpg" />
+    <Content Include="Assets\images\demo\fashion\credits.txt" />
+    <Content Include="Assets\images\demo\fashion\thumb\1.jpg" />
+    <Content Include="Assets\images\demo\fashion\thumb\2.jpg" />
+    <Content Include="Assets\images\demo\fashion\thumb\3.jpg" />
+    <Content Include="Assets\images\demo\fashion\thumb\4.jpg" />
+    <Content Include="Assets\images\demo\fashion\thumb\5.jpg" />
+    <Content Include="Assets\images\demo\fashion\thumb\6.jpg" />
+    <Content Include="Assets\images\demo\fashion\thumb\7.jpg" />
+    <Content Include="Assets\images\demo\fashion\thumb\8.jpg" />
+    <Content Include="Assets\images\demo\fashion\thumb\9.jpg" />
+    <Content Include="Assets\images\demo\favicon.ico" />
+    <Content Include="Assets\images\demo\favicon.png" />
+    <Content Include="Assets\images\demo\features.jpg" />
+    <Content Include="Assets\images\demo\flex_1.jpg" />
+    <Content Include="Assets\images\demo\flex_2.jpg" />
+    <Content Include="Assets\images\demo\flickr_13.jpg" />
+    <Content Include="Assets\images\demo\flickr_14.jpg" />
+    <Content Include="Assets\images\demo\flickr_15.jpg" />
+    <Content Include="Assets\images\demo\flickr_16.jpg" />
+    <Content Include="Assets\images\demo\flickr_37.jpg" />
+    <Content Include="Assets\images\demo\flickr_9.jpg" />
+    <Content Include="Assets\images\demo\flickr_eye.jpg" />
+    <Content Include="Assets\images\demo\ipad.png" />
+    <Content Include="Assets\images\demo\iphones.png" />
+    <Content Include="Assets\images\demo\laptop.png" />
+    <Content Include="Assets\images\demo\layerslider\abyss-bg.jpg" />
+    <Content Include="Assets\images\demo\layerslider\acorn.png" />
+    <Content Include="Assets\images\demo\layerslider\baloon1.png" />
+    <Content Include="Assets\images\demo\layerslider\baloon2.png" />
+    <Content Include="Assets\images\demo\layerslider\baloon3.png" />
+    <Content Include="Assets\images\demo\layerslider\bbb-bg.jpg" />
+    <Content Include="Assets\images\demo\layerslider\bg.jpg" />
+    <Content Include="Assets\images\demo\layerslider\bg21.jpg" />
+    <Content Include="Assets\images\demo\layerslider\bg4.jpg" />
+    <Content Include="Assets\images\demo\layerslider\bg5.jpg" />
+    <Content Include="Assets\images\demo\layerslider\bg6b.jpg" />
+    <Content Include="Assets\images\demo\layerslider\bi-colored-butterfly-source_ijc.gif" />
+    <Content Include="Assets\images\demo\layerslider\big-cube.png" />
+    <Content Include="Assets\images\demo\layerslider\bokeh.jpg" />
+    <Content Include="Assets\images\demo\layerslider\circle.png" />
+    <Content Include="Assets\images\demo\layerslider\cubes-bg.jpg" />
+    <Content Include="Assets\images\demo\layerslider\cubes-blur.jpg" />
+    <Content Include="Assets\images\demo\layerslider\easy.png" />
+    <Content Include="Assets\images\demo\layerslider\layerslider-on-cellphone.png" />
+    <Content Include="Assets\images\demo\layerslider\layerslider-on-computer.png" />
+    <Content Include="Assets\images\demo\layerslider\layerslider-on-tablet.png" />
+    <Content Include="Assets\images\demo\layerslider\ls5box.png" />
+    <Content Include="Assets\images\demo\layerslider\mid-cube-blur.png" />
+    <Content Include="Assets\images\demo\layerslider\mouse.png" />
+    <Content Include="Assets\images\demo\layerslider\sayhello.png" />
+    <Content Include="Assets\images\demo\layerslider\slide-b-1.png" />
+    <Content Include="Assets\images\demo\layerslider\slide-b-2.png" />
+    <Content Include="Assets\images\demo\layerslider\slide-b-3.png" />
+    <Content Include="Assets\images\demo\layerslider\slide-b-4.png" />
+    <Content Include="Assets\images\demo\layerslider\slide-b-5.png" />
+    <Content Include="Assets\images\demo\layerslider\slide-b-bg-blue.jpg" />
+    <Content Include="Assets\images\demo\layerslider\slide-b-bg-red.jpg" />
+    <Content Include="Assets\images\demo\layerslider\slide-b-bg-yellow.jpg" />
+    <Content Include="Assets\images\demo\layerslider\slide-b-bg.jpg" />
+    <Content Include="Assets\images\demo\layerslider\small-cube-blur.png" />
+    <Content Include="Assets\images\demo\layerslider\small-cube.png" />
+    <Content Include="Assets\images\demo\layerslider\tile-1.png" />
+    <Content Include="Assets\images\demo\layerslider\tile-2.png" />
+    <Content Include="Assets\images\demo\layerslider\tile-3.png" />
+    <Content Include="Assets\images\demo\layerslider\tile-4.png" />
+    <Content Include="Assets\images\demo\layerslider\tile-5.png" />
+    <Content Include="Assets\images\demo\layerslider\tile-6.png" />
+    <Content Include="Assets\images\demo\layerslider\tile-7.png" />
+    <Content Include="Assets\images\demo\layerslider\tile-8.png" />
+    <Content Include="Assets\images\demo\layerslider\tile-9.png" />
+    <Content Include="Assets\images\demo\layerslider\vfeatures.png" />
+    <Content Include="Assets\images\demo\logo\blue.png" />
+    <Content Include="Assets\images\demo\logo\brown.png" />
+    <Content Include="Assets\images\demo\logo\darkblue.png" />
+    <Content Include="Assets\images\demo\logo\darkgreen.png" />
+    <Content Include="Assets\images\demo\logo\green.png" />
+    <Content Include="Assets\images\demo\logo\lightgrey.png" />
+    <Content Include="Assets\images\demo\logo\orange.png" />
+    <Content Include="Assets\images\demo\logo\pink.png" />
+    <Content Include="Assets\images\demo\logo\red.png" />
+    <Content Include="Assets\images\demo\logo\yellow.png" />
+    <Content Include="Assets\images\demo\other\credits.txt" />
+    <Content Include="Assets\images\demo\other\o1.jpg" />
+    <Content Include="Assets\images\demo\other\o2.jpg" />
+    <Content Include="Assets\images\demo\other\o3.jpg" />
+    <Content Include="Assets\images\demo\other\o4.jpg" />
+    <Content Include="Assets\images\demo\other\thumb_o1.jpg" />
+    <Content Include="Assets\images\demo\other\thumb_o2.jpg" />
+    <Content Include="Assets\images\demo\other\thumb_o3.jpg" />
+    <Content Include="Assets\images\demo\other\thumb_o4.jpg" />
+    <Content Include="Assets\images\demo\owlslider\flickr_14.jpg" />
+    <Content Include="Assets\images\demo\owlslider\flickr_15.jpg" />
+    <Content Include="Assets\images\demo\owlslider\flickr_eye.jpg" />
+    <Content Include="Assets\images\demo\people\1.jpg" />
+    <Content Include="Assets\images\demo\people\10.jpg" />
+    <Content Include="Assets\images\demo\people\11.jpg" />
+    <Content Include="Assets\images\demo\people\12.jpg" />
+    <Content Include="Assets\images\demo\people\13.jpg" />
+    <Content Include="Assets\images\demo\people\14.jpg" />
+    <Content Include="Assets\images\demo\people\15.jpg" />
+    <Content Include="Assets\images\demo\people\16.jpg" />
+    <Content Include="Assets\images\demo\people\17.jpg" />
+    <Content Include="Assets\images\demo\people\2.jpg" />
+    <Content Include="Assets\images\demo\people\3.jpg" />
+    <Content Include="Assets\images\demo\people\4.jpg" />
+    <Content Include="Assets\images\demo\people\5.jpg" />
+    <Content Include="Assets\images\demo\people\6.jpg" />
+    <Content Include="Assets\images\demo\people\7.jpg" />
+    <Content Include="Assets\images\demo\people\8.jpg" />
+    <Content Include="Assets\images\demo\people\9.jpg" />
+    <Content Include="Assets\images\demo\people\9_full.jpg" />
+    <Content Include="Assets\images\demo\people\credits.txt" />
+    <Content Include="Assets\images\demo\people\fixed-height\1.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\10.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\11.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\12.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\13.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\15.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\16.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\17.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\2.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\3.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\4.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\5.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\6.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\7.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\8.jpg" />
+    <Content Include="Assets\images\demo\people\fixed-height\9.jpg" />
+    <Content Include="Assets\images\demo\people\me_1.jpg" />
+    <Content Include="Assets\images\demo\people\me_2.jpg" />
+    <Content Include="Assets\images\demo\portfolio\a1.jpg" />
+    <Content Include="Assets\images\demo\portfolio\a2.jpg" />
+    <Content Include="Assets\images\demo\portfolio\a3.jpg" />
+    <Content Include="Assets\images\demo\portfolio\a4.jpg" />
+    <Content Include="Assets\images\demo\portfolio\a5.jpg" />
+    <Content Include="Assets\images\demo\portfolio\a6.jpg" />
+    <Content Include="Assets\images\demo\portfolio\a7.jpg" />
+    <Content Include="Assets\images\demo\portfolio\a8.jpg" />
+    <Content Include="Assets\images\demo\portfolio\credits.txt" />
+    <Content Include="Assets\images\demo\portfolio\full.jpg" />
+    <Content Include="Assets\images\demo\portfolio\thumb\a1.jpg" />
+    <Content Include="Assets\images\demo\portfolio\thumb\a2.jpg" />
+    <Content Include="Assets\images\demo\portfolio\thumb\a3.jpg" />
+    <Content Include="Assets\images\demo\portfolio\thumb\a4.jpg" />
+    <Content Include="Assets\images\demo\portfolio\thumb\a5.jpg" />
+    <Content Include="Assets\images\demo\portfolio\thumb\a6.jpg" />
+    <Content Include="Assets\images\demo\portfolio\thumb\a7.jpg" />
+    <Content Include="Assets\images\demo\portfolio\thumb\a8.jpg" />
+    <Content Include="Assets\images\demo\ps1.png" />
+    <Content Include="Assets\images\demo\ps2.png" />
+    <Content Include="Assets\images\demo\shop\1.jpg" />
+    <Content Include="Assets\images\demo\shop\18.jpg" />
+    <Content Include="Assets\images\demo\shop\19.jpg" />
+    <Content Include="Assets\images\demo\shop\2.jpg" />
+    <Content Include="Assets\images\demo\shop\20.jpg" />
+    <Content Include="Assets\images\demo\shop\21.jpg" />
+    <Content Include="Assets\images\demo\shop\3.jpg" />
+    <Content Include="Assets\images\demo\shop\4.jpg" />
+    <Content Include="Assets\images\demo\shop\5.jpg" />
+    <Content Include="Assets\images\demo\shop\6.jpg" />
+    <Content Include="Assets\images\demo\shop\7.jpg" />
+    <Content Include="Assets\images\demo\shop\8.jpg" />
+    <Content Include="Assets\images\demo\shop\9.jpg" />
+    <Content Include="Assets\images\demo\shop\credits.txt" />
+    <Content Include="Assets\images\demo\shop\product\1.jpg" />
+    <Content Include="Assets\images\demo\shop\product\2.jpg" />
+    <Content Include="Assets\images\demo\shop\product\3.jpg" />
+    <Content Include="Assets\images\demo\shop\product\4.jpg" />
+    <Content Include="Assets\images\demo\shop\product\thumb_1.jpg" />
+    <Content Include="Assets\images\demo\shop\product\thumb_2.jpg" />
+    <Content Include="Assets\images\demo\shop\product\thumb_3.jpg" />
+    <Content Include="Assets\images\demo\shop\product\thumb_4.jpg" />
+    <Content Include="Assets\images\demo\shop\slider\1.jpg" />
+    <Content Include="Assets\images\demo\shop\slider\5.jpg" />
+    <Content Include="Assets\images\demo\shop\slider\9.jpg" />
+    <Content Include="Assets\images\demo\shop\slider\fs_1.png" />
+    <Content Include="Assets\images\demo\shop\slider\fs_2.png" />
+    <Content Include="Assets\images\demo\shop\slider\fs_3.png" />
+    <Content Include="Assets\images\demo\shop\slider\fs_font.txt" />
+    <Content Include="Assets\images\demo\shop\slider_2\4.jpg" />
+    <Content Include="Assets\images\demo\shop\slider_2\7.jpg" />
+    <Content Include="Assets\images\demo\shop\slider_2\9.jpg" />
+    <Content Include="Assets\images\demo\shop\thumb\1.jpg" />
+    <Content Include="Assets\images\demo\shop\thumb\18.jpg" />
+    <Content Include="Assets\images\demo\shop\thumb\19.jpg" />
+    <Content Include="Assets\images\demo\shop\thumb\2.jpg" />
+    <Content Include="Assets\images\demo\shop\thumb\20.jpg" />
+    <Content Include="Assets\images\demo\shop\thumb\21.jpg" />
+    <Content Include="Assets\images\demo\shop\thumb\4.jpg" />
+    <Content Include="Assets\images\demo\shop\view2.jpg" />
+    <Content Include="Assets\images\demo\shop\view3.jpg" />
+    <Content Include="Assets\images\demo\shop\women_cloths.jpg" />
+    <Content Include="Assets\images\demo\slide_title_line.png" />
+    <Content Include="Assets\images\demo\thumb_blue.jpg" />
+    <Content Include="Assets\images\demo\thumb_blur.jpg" />
+    <Content Include="Assets\images\demo\thumb_careers.jpg" />
+    <Content Include="Assets\images\demo\thumb_desk.jpg" />
+    <Content Include="Assets\images\demo\thumb_faq.jpg" />
+    <Content Include="Assets\images\demo\thumb_flickr_13.jpg" />
+    <Content Include="Assets\images\demo\thumb_flickr_14.jpg" />
+    <Content Include="Assets\images\demo\thumb_flickr_16.jpg" />
+    <Content Include="Assets\images\demo\wall.jpg" />
+    <Content Include="Assets\images\demo\wall2.jpg" />
+    <Content Include="Assets\images\email_template\readme.txt" />
+    <Content Include="Assets\images\email_template\social_icon1.png" />
+    <Content Include="Assets\images\email_template\social_icon1_default.png" />
+    <Content Include="Assets\images\email_template\social_icon2.png" />
+    <Content Include="Assets\images\email_template\social_icon2_default.png" />
+    <Content Include="Assets\images\email_template\social_icon3.png" />
+    <Content Include="Assets\images\email_template\social_icon3_default.png" />
+    <Content Include="Assets\images\email_template\social_icon4.png" />
+    <Content Include="Assets\images\email_template\social_icon4_default.png" />
+    <Content Include="Assets\images\favicon.ico" />
+    <Content Include="Assets\images\female.png" />
+    <Content Include="Assets\images\finallogo.png" />
+    <Content Include="Assets\images\flags\ad.png" />
+    <Content Include="Assets\images\flags\ae.png" />
+    <Content Include="Assets\images\flags\af.png" />
+    <Content Include="Assets\images\flags\ag.png" />
+    <Content Include="Assets\images\flags\ai.png" />
+    <Content Include="Assets\images\flags\al.png" />
+    <Content Include="Assets\images\flags\am.png" />
+    <Content Include="Assets\images\flags\an.png" />
+    <Content Include="Assets\images\flags\ao.png" />
+    <Content Include="Assets\images\flags\ar.png" />
+    <Content Include="Assets\images\flags\as.png" />
+    <Content Include="Assets\images\flags\at.png" />
+    <Content Include="Assets\images\flags\au.png" />
+    <Content Include="Assets\images\flags\aw.png" />
+    <Content Include="Assets\images\flags\ax.png" />
+    <Content Include="Assets\images\flags\az.png" />
+    <Content Include="Assets\images\flags\ba.png" />
+    <Content Include="Assets\images\flags\bb.png" />
+    <Content Include="Assets\images\flags\bd.png" />
+    <Content Include="Assets\images\flags\be.png" />
+    <Content Include="Assets\images\flags\bf.png" />
+    <Content Include="Assets\images\flags\bg.png" />
+    <Content Include="Assets\images\flags\bh.png" />
+    <Content Include="Assets\images\flags\bi.png" />
+    <Content Include="Assets\images\flags\bj.png" />
+    <Content Include="Assets\images\flags\bm.png" />
+    <Content Include="Assets\images\flags\bn.png" />
+    <Content Include="Assets\images\flags\bo.png" />
+    <Content Include="Assets\images\flags\br.png" />
+    <Content Include="Assets\images\flags\bs.png" />
+    <Content Include="Assets\images\flags\bt.png" />
+    <Content Include="Assets\images\flags\bv.png" />
+    <Content Include="Assets\images\flags\bw.png" />
+    <Content Include="Assets\images\flags\by.png" />
+    <Content Include="Assets\images\flags\bz.png" />
+    <Content Include="Assets\images\flags\ca.png" />
+    <Content Include="Assets\images\flags\catalonia.png" />
+    <Content Include="Assets\images\flags\cc.png" />
+    <Content Include="Assets\images\flags\cd.png" />
+    <Content Include="Assets\images\flags\cf.png" />
+    <Content Include="Assets\images\flags\cg.png" />
+    <Content Include="Assets\images\flags\ch.png" />
+    <Content Include="Assets\images\flags\ci.png" />
+    <Content Include="Assets\images\flags\ck.png" />
+    <Content Include="Assets\images\flags\cl.png" />
+    <Content Include="Assets\images\flags\cm.png" />
+    <Content Include="Assets\images\flags\cn.png" />
+    <Content Include="Assets\images\flags\co.png" />
+    <Content Include="Assets\images\flags\cr.png" />
+    <Content Include="Assets\images\flags\cs.png" />
+    <Content Include="Assets\images\flags\cu.png" />
+    <Content Include="Assets\images\flags\cv.png" />
+    <Content Include="Assets\images\flags\cx.png" />
+    <Content Include="Assets\images\flags\cy.png" />
+    <Content Include="Assets\images\flags\cz.png" />
+    <Content Include="Assets\images\flags\de.png" />
+    <Content Include="Assets\images\flags\dj.png" />
+    <Content Include="Assets\images\flags\dk.png" />
+    <Content Include="Assets\images\flags\dm.png" />
+    <Content Include="Assets\images\flags\do.png" />
+    <Content Include="Assets\images\flags\dz.png" />
+    <Content Include="Assets\images\flags\ec.png" />
+    <Content Include="Assets\images\flags\ee.png" />
+    <Content Include="Assets\images\flags\eg.png" />
+    <Content Include="Assets\images\flags\eh.png" />
+    <Content Include="Assets\images\flags\england.png" />
+    <Content Include="Assets\images\flags\er.png" />
+    <Content Include="Assets\images\flags\es.png" />
+    <Content Include="Assets\images\flags\et.png" />
+    <Content Include="Assets\images\flags\europeanunion.png" />
+    <Content Include="Assets\images\flags\fam.png" />
+    <Content Include="Assets\images\flags\fi.png" />
+    <Content Include="Assets\images\flags\fj.png" />
+    <Content Include="Assets\images\flags\fk.png" />
+    <Content Include="Assets\images\flags\fm.png" />
+    <Content Include="Assets\images\flags\fo.png" />
+    <Content Include="Assets\images\flags\fr.png" />
+    <Content Include="Assets\images\flags\ga.png" />
+    <Content Include="Assets\images\flags\gb.png" />
+    <Content Include="Assets\images\flags\gd.png" />
+    <Content Include="Assets\images\flags\ge.png" />
+    <Content Include="Assets\images\flags\gf.png" />
+    <Content Include="Assets\images\flags\gh.png" />
+    <Content Include="Assets\images\flags\gi.png" />
+    <Content Include="Assets\images\flags\gl.png" />
+    <Content Include="Assets\images\flags\gm.png" />
+    <Content Include="Assets\images\flags\gn.png" />
+    <Content Include="Assets\images\flags\gp.png" />
+    <Content Include="Assets\images\flags\gq.png" />
+    <Content Include="Assets\images\flags\gr.png" />
+    <Content Include="Assets\images\flags\gs.png" />
+    <Content Include="Assets\images\flags\gt.png" />
+    <Content Include="Assets\images\flags\gu.png" />
+    <Content Include="Assets\images\flags\gw.png" />
+    <Content Include="Assets\images\flags\gy.png" />
+    <Content Include="Assets\images\flags\hk.png" />
+    <Content Include="Assets\images\flags\hm.png" />
+    <Content Include="Assets\images\flags\hn.png" />
+    <Content Include="Assets\images\flags\hr.png" />
+    <Content Include="Assets\images\flags\ht.png" />
+    <Content Include="Assets\images\flags\hu.png" />
+    <Content Include="Assets\images\flags\id.png" />
+    <Content Include="Assets\images\flags\ie.png" />
+    <Content Include="Assets\images\flags\il.png" />
+    <Content Include="Assets\images\flags\in.png" />
+    <Content Include="Assets\images\flags\io.png" />
+    <Content Include="Assets\images\flags\iq.png" />
+    <Content Include="Assets\images\flags\ir.png" />
+    <Content Include="Assets\images\flags\is.png" />
+    <Content Include="Assets\images\flags\it.png" />
+    <Content Include="Assets\images\flags\jm.png" />
+    <Content Include="Assets\images\flags\jo.png" />
+    <Content Include="Assets\images\flags\jp.png" />
+    <Content Include="Assets\images\flags\ke.png" />
+    <Content Include="Assets\images\flags\kg.png" />
+    <Content Include="Assets\images\flags\kh.png" />
+    <Content Include="Assets\images\flags\ki.png" />
+    <Content Include="Assets\images\flags\km.png" />
+    <Content Include="Assets\images\flags\kn.png" />
+    <Content Include="Assets\images\flags\kp.png" />
+    <Content Include="Assets\images\flags\kr.png" />
+    <Content Include="Assets\images\flags\kw.png" />
+    <Content Include="Assets\images\flags\ky.png" />
+    <Content Include="Assets\images\flags\kz.png" />
+    <Content Include="Assets\images\flags\la.png" />
+    <Content Include="Assets\images\flags\lb.png" />
+    <Content Include="Assets\images\flags\lc.png" />
+    <Content Include="Assets\images\flags\li.png" />
+    <Content Include="Assets\images\flags\lk.png" />
+    <Content Include="Assets\images\flags\lr.png" />
+    <Content Include="Assets\images\flags\ls.png" />
+    <Content Include="Assets\images\flags\lt.png" />
+    <Content Include="Assets\images\flags\lu.png" />
+    <Content Include="Assets\images\flags\lv.png" />
+    <Content Include="Assets\images\flags\ly.png" />
+    <Content Include="Assets\images\flags\ma.png" />
+    <Content Include="Assets\images\flags\mc.png" />
+    <Content Include="Assets\images\flags\md.png" />
+    <Content Include="Assets\images\flags\me.png" />
+    <Content Include="Assets\images\flags\mg.png" />
+    <Content Include="Assets\images\flags\mh.png" />
+    <Content Include="Assets\images\flags\mk.png" />
+    <Content Include="Assets\images\flags\ml.png" />
+    <Content Include="Assets\images\flags\mm.png" />
+    <Content Include="Assets\images\flags\mn.png" />
+    <Content Include="Assets\images\flags\mo.png" />
+    <Content Include="Assets\images\flags\mp.png" />
+    <Content Include="Assets\images\flags\mq.png" />
+    <Content Include="Assets\images\flags\mr.png" />
+    <Content Include="Assets\images\flags\ms.png" />
+    <Content Include="Assets\images\flags\mt.png" />
+    <Content Include="Assets\images\flags\mu.png" />
+    <Content Include="Assets\images\flags\mv.png" />
+    <Content Include="Assets\images\flags\mw.png" />
+    <Content Include="Assets\images\flags\mx.png" />
+    <Content Include="Assets\images\flags\my.png" />
+    <Content Include="Assets\images\flags\mz.png" />
+    <Content Include="Assets\images\flags\na.png" />
+    <Content Include="Assets\images\flags\nc.png" />
+    <Content Include="Assets\images\flags\ne.png" />
+    <Content Include="Assets\images\flags\nf.png" />
+    <Content Include="Assets\images\flags\ng.png" />
+    <Content Include="Assets\images\flags\ni.png" />
+    <Content Include="Assets\images\flags\nl.png" />
+    <Content Include="Assets\images\flags\no.png" />
+    <Content Include="Assets\images\flags\np.png" />
+    <Content Include="Assets\images\flags\nr.png" />
+    <Content Include="Assets\images\flags\nu.png" />
+    <Content Include="Assets\images\flags\nz.png" />
+    <Content Include="Assets\images\flags\om.png" />
+    <Content Include="Assets\images\flags\pa.png" />
+    <Content Include="Assets\images\flags\pe.png" />
+    <Content Include="Assets\images\flags\pf.png" />
+    <Content Include="Assets\images\flags\pg.png" />
+    <Content Include="Assets\images\flags\ph.png" />
+    <Content Include="Assets\images\flags\pk.png" />
+    <Content Include="Assets\images\flags\pl.png" />
+    <Content Include="Assets\images\flags\pm.png" />
+    <Content Include="Assets\images\flags\pn.png" />
+    <Content Include="Assets\images\flags\pr.png" />
+    <Content Include="Assets\images\flags\ps.png" />
+    <Content Include="Assets\images\flags\pt.png" />
+    <Content Include="Assets\images\flags\pw.png" />
+    <Content Include="Assets\images\flags\py.png" />
+    <Content Include="Assets\images\flags\qa.png" />
+    <Content Include="Assets\images\flags\re.png" />
+    <Content Include="Assets\images\flags\readme.txt" />
+    <Content Include="Assets\images\flags\ro.png" />
+    <Content Include="Assets\images\flags\rs.png" />
+    <Content Include="Assets\images\flags\ru.png" />
+    <Content Include="Assets\images\flags\rw.png" />
+    <Content Include="Assets\images\flags\sa.png" />
+    <Content Include="Assets\images\flags\sb.png" />
+    <Content Include="Assets\images\flags\sc.png" />
+    <Content Include="Assets\images\flags\scotland.png" />
+    <Content Include="Assets\images\flags\sd.png" />
+    <Content Include="Assets\images\flags\se.png" />
+    <Content Include="Assets\images\flags\sg.png" />
+    <Content Include="Assets\images\flags\sh.png" />
+    <Content Include="Assets\images\flags\si.png" />
+    <Content Include="Assets\images\flags\sj.png" />
+    <Content Include="Assets\images\flags\sk.png" />
+    <Content Include="Assets\images\flags\sl.png" />
+    <Content Include="Assets\images\flags\sm.png" />
+    <Content Include="Assets\images\flags\sn.png" />
+    <Content Include="Assets\images\flags\so.png" />
+    <Content Include="Assets\images\flags\sr.png" />
+    <Content Include="Assets\images\flags\st.png" />
+    <Content Include="Assets\images\flags\sv.png" />
+    <Content Include="Assets\images\flags\sy.png" />
+    <Content Include="Assets\images\flags\sz.png" />
+    <Content Include="Assets\images\flags\tc.png" />
+    <Content Include="Assets\images\flags\td.png" />
+    <Content Include="Assets\images\flags\tf.png" />
+    <Content Include="Assets\images\flags\tg.png" />
+    <Content Include="Assets\images\flags\th.png" />
+    <Content Include="Assets\images\flags\tj.png" />
+    <Content Include="Assets\images\flags\tk.png" />
+    <Content Include="Assets\images\flags\tl.png" />
+    <Content Include="Assets\images\flags\tm.png" />
+    <Content Include="Assets\images\flags\tn.png" />
+    <Content Include="Assets\images\flags\to.png" />
+    <Content Include="Assets\images\flags\tr.png" />
+    <Content Include="Assets\images\flags\tt.png" />
+    <Content Include="Assets\images\flags\tv.png" />
+    <Content Include="Assets\images\flags\tw.png" />
+    <Content Include="Assets\images\flags\tz.png" />
+    <Content Include="Assets\images\flags\ua.png" />
+    <Content Include="Assets\images\flags\ug.png" />
+    <Content Include="Assets\images\flags\um.png" />
+    <Content Include="Assets\images\flags\us.png" />
+    <Content Include="Assets\images\flags\uy.png" />
+    <Content Include="Assets\images\flags\uz.png" />
+    <Content Include="Assets\images\flags\va.png" />
+    <Content Include="Assets\images\flags\vc.png" />
+    <Content Include="Assets\images\flags\ve.png" />
+    <Content Include="Assets\images\flags\vg.png" />
+    <Content Include="Assets\images\flags\vi.png" />
+    <Content Include="Assets\images\flags\vn.png" />
+    <Content Include="Assets\images\flags\vu.png" />
+    <Content Include="Assets\images\flags\wales.png" />
+    <Content Include="Assets\images\flags\wf.png" />
+    <Content Include="Assets\images\flags\ws.png" />
+    <Content Include="Assets\images\flags\ye.png" />
+    <Content Include="Assets\images\flags\yt.png" />
+    <Content Include="Assets\images\flags\za.png" />
+    <Content Include="Assets\images\flags\zm.png" />
+    <Content Include="Assets\images\flags\zw.png" />
+    <Content Include="Assets\images\layer_slider\skins\borderlessdark3d\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\borderlessdark3d\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\borderlessdark3d\shadow.png" />
+    <Content Include="Assets\images\layer_slider\skins\borderlessdark3d\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\borderlessdark3d\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\borderlessdark\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\borderlessdark\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\borderlessdark\shadow.png" />
+    <Content Include="Assets\images\layer_slider\skins\borderlessdark\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\borderlessdark\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\borderlesslight3d\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\borderlesslight3d\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\borderlesslight3d\shadow.png" />
+    <Content Include="Assets\images\layer_slider\skins\borderlesslight3d\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\borderlesslight3d\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\borderlesslight\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\borderlesslight\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\borderlesslight\shadow.png" />
+    <Content Include="Assets\images\layer_slider\skins\borderlesslight\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\borderlesslight\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\carousel\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\carousel\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\carousel\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\carousel\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\darkskin\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\darkskin\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\darkskin\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\darkskin\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\defaultskin\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\defaultskin\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\defaultskin\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\defaultskin\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\fullwidthdark\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\fullwidthdark\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\fullwidthdark\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\fullwidthdark\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\fullwidth\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\fullwidth\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\fullwidth\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\fullwidth\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\glass\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\glass\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\glass\shadow.png" />
+    <Content Include="Assets\images\layer_slider\skins\glass\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\glass\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\lightskin\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\lightskin\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\lightskin\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\lightskin\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\minimal\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\minimal\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\minimal\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\minimal\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\noskin\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\noskin\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\noskin\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\noskin\skin.png" />
+    <Content Include="Assets\images\layer_slider\skins\v5\loading.gif" />
+    <Content Include="Assets\images\layer_slider\skins\v5\nothumb.png" />
+    <Content Include="Assets\images\layer_slider\skins\v5\skin.css" />
+    <Content Include="Assets\images\layer_slider\skins\v5\skin.png" />
+    <Content Include="Assets\images\logo_.png" />
+    <Content Include="Assets\images\male.png" />
+    <Content Include="Assets\images\map\map.png" />
+    <Content Include="Assets\images\map\pin-1.png" />
+    <Content Include="Assets\images\map\pin-2.png" />
+    <Content Include="Assets\images\map\pin-3.png" />
+    <Content Include="Assets\images\map\pin-4.png" />
+    <Content Include="Assets\images\map\pin-5.png" />
+    <Content Include="Assets\images\noimg.png" />
+    <Content Include="Assets\images\patterns\none.jpg" />
+    <Content Include="Assets\images\patterns\parallax_overlay.png" />
+    <Content Include="Assets\images\patterns\pattern1.png" />
+    <Content Include="Assets\images\patterns\pattern10.png" />
+    <Content Include="Assets\images\patterns\pattern11.png" />
+    <Content Include="Assets\images\patterns\pattern2.png" />
+    <Content Include="Assets\images\patterns\pattern3.png" />
+    <Content Include="Assets\images\patterns\pattern4.png" />
+    <Content Include="Assets\images\patterns\pattern5.png" />
+    <Content Include="Assets\images\patterns\pattern6.png" />
+    <Content Include="Assets\images\patterns\pattern7.png" />
+    <Content Include="Assets\images\patterns\pattern8.png" />
+    <Content Include="Assets\images\patterns\pattern9.png" />
+    <Content Include="Assets\images\revolution_slider\assets\arrowleft.png" />
+    <Content Include="Assets\images\revolution_slider\assets\arrowright.png" />
+    <Content Include="Assets\images\revolution_slider\assets\arrow_large_left.png" />
+    <Content Include="Assets\images\revolution_slider\assets\arrow_large_right.png" />
+    <Content Include="Assets\images\revolution_slider\assets\arrow_left.png" />
+    <Content Include="Assets\images\revolution_slider\assets\arrow_left2.png" />
+    <Content Include="Assets\images\revolution_slider\assets\arrow_right.png" />
+    <Content Include="Assets\images\revolution_slider\assets\arrow_right2.png" />
+    <Content Include="Assets\images\revolution_slider\assets\black50.png" />
+    <Content Include="Assets\images\revolution_slider\assets\boxed_bgtile.png" />
+    <Content Include="Assets\images\revolution_slider\assets\bullet.png" />
+    <Content Include="Assets\images\revolution_slider\assets\bullets.png" />
+    <Content Include="Assets\images\revolution_slider\assets\bullets2.png" />
+    <Content Include="Assets\images\revolution_slider\assets\bullet_boxed.png" />
+    <Content Include="Assets\images\revolution_slider\assets\coloredbg.png" />
+    <Content Include="Assets\images\revolution_slider\assets\grain.png" />
+    <Content Include="Assets\images\revolution_slider\assets\gridtile.png" />
+    <Content Include="Assets\images\revolution_slider\assets\gridtile_3x3.png" />
+    <Content Include="Assets\images\revolution_slider\assets\gridtile_3x3_white.png" />
+    <Content Include="Assets\images\revolution_slider\assets\gridtile_white.png" />
+    <Content Include="Assets\images\revolution_slider\assets\large_left.png" />
+    <Content Include="Assets\images\revolution_slider\assets\large_right.png" />
+    <Content Include="Assets\images\revolution_slider\assets\loader.gif" />
+    <Content Include="Assets\images\revolution_slider\assets\loader2.gif" />
+    <Content Include="Assets\images\revolution_slider\assets\navigdots.png" />
+    <Content Include="Assets\images\revolution_slider\assets\navigdots_bgtile.png" />
+    <Content Include="Assets\images\revolution_slider\assets\shadow1.png" />
+    <Content Include="Assets\images\revolution_slider\assets\shadow2.png" />
+    <Content Include="Assets\images\revolution_slider\assets\shadow3.png" />
+    <Content Include="Assets\images\revolution_slider\assets\small_left.png" />
+    <Content Include="Assets\images\revolution_slider\assets\small_left_boxed.png" />
+    <Content Include="Assets\images\revolution_slider\assets\small_right.png" />
+    <Content Include="Assets\images\revolution_slider\assets\small_right_boxed.png" />
+    <Content Include="Assets\images\revolution_slider\assets\timer.png" />
+    <Content Include="Assets\images\revolution_slider\assets\timerdot.png" />
+    <Content Include="Assets\images\revolution_slider\assets\transparent.jpg" />
+    <Content Include="Assets\images\revolution_slider\assets\white50.png" />
+    <Content Include="Assets\images\revolution_slider\font\revicons.svg" />
+    <Content Include="Assets\images\revolution_slider\images\decor_inside.png" />
+    <Content Include="Assets\images\revolution_slider\images\decor_inside_white.png" />
+    <Content Include="Assets\images\revolution_slider\images\decor_testimonial.png" />
+    <Content Include="Assets\images\revolution_slider\images\gradient\g30.png" />
+    <Content Include="Assets\images\revolution_slider\images\gradient\g40.png" />
+    <Content Include="Assets\images\revolution_slider\README.txt" />
+    <Content Include="Assets\js\contact.js" />
+    <Content Include="Assets\js\countdown.js" />
+    <Content Include="Assets\js\revolution_slider.js" />
+    <Content Include="Assets\js\scripts.js" />
+    <Content Include="Assets\plugins\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Assets\plugins\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Assets\plugins\bootstrap\css\bootstrap.css" />
+    <Content Include="Assets\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="Assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Assets\plugins\flexslider\changelog.txt" />
+    <Content Include="Assets\plugins\flexslider\flexslider.css" />
+    <Content Include="Assets\plugins\flexslider\fonts\flexslider-icon.svg" />
+    <Content Include="Assets\plugins\flexslider\images\bg_play_pause.png" />
+    <Content Include="Assets\plugins\flexslider\jquery.flexslider-min.js" />
+    <Content Include="Assets\plugins\flexslider\jquery.flexslider.js" />
+    <Content Include="Assets\plugins\gmaps.js" />
+    <Content Include="Assets\plugins\holder.js" />
+    <Content Include="Assets\plugins\ion-range-slider\css\ion.rangeSlider.css" />
+    <Content Include="Assets\plugins\ion-range-slider\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="Assets\plugins\ion-range-slider\css\ion.rangeSlider.skinNice.css" />
+    <Content Include="Assets\plugins\ion-range-slider\css\ion.rangeSlider.skinSimple.css" />
+    <Content Include="Assets\plugins\ion-range-slider\css\normalize.min.css" />
+    <Content Include="Assets\plugins\ion-range-slider\img\sprite-skin-flat.png" />
+    <Content Include="Assets\plugins\ion-range-slider\img\sprite-skin-nice.png" />
+    <Content Include="Assets\plugins\ion-range-slider\img\sprite-skin-simple.png" />
+    <Content Include="Assets\plugins\ion-range-slider\js\ion.rangeSlider.js" />
+    <Content Include="Assets\plugins\ion-range-slider\js\ion.rangeSlider.min.js" />
+    <Content Include="Assets\plugins\jquery-2.1.1.min.js" />
+    <Content Include="Assets\plugins\jquery-vectormap\gdp-data.js" />
+    <Content Include="Assets\plugins\jquery-vectormap\jquery-jvectormap-1.2.2.css" />
+    <Content Include="Assets\plugins\jquery-vectormap\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="Assets\plugins\jquery-vectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Assets\plugins\jquery.countdown.js" />
+    <Content Include="Assets\plugins\jquery.isotope.js" />
+    <Content Include="Assets\plugins\knob\excanvas.js" />
+    <Content Include="Assets\plugins\knob\index.html" />
+    <Content Include="Assets\plugins\knob\js\jquery.knob.js" />
+    <Content Include="Assets\plugins\knob\secretplan.jpg" />
+    <Content Include="Assets\plugins\layerslider\css\blank.gif" />
+    <Content Include="Assets\plugins\layerslider\css\layerslider.css" />
+    <Content Include="Assets\plugins\layerslider\js\greensock.js" />
+    <Content Include="Assets\plugins\layerslider\js\layerslider.kreaturamedia.jquery.js" />
+    <Content Include="Assets\plugins\layerslider\js\layerslider.transitions.js" />
+    <Content Include="Assets\plugins\layerslider\js\layerslider_pack.js" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlessdark3d\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlessdark3d\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlessdark3d\shadow.png" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlessdark3d\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlessdark3d\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlessdark\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlessdark\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlessdark\shadow.png" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlessdark\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlessdark\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlesslight3d\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlesslight3d\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlesslight3d\shadow.png" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlesslight3d\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlesslight3d\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlesslight\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlesslight\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlesslight\shadow.png" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlesslight\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\borderlesslight\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\carousel\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\carousel\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\carousel\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\carousel\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\darkskin\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\darkskin\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\darkskin\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\darkskin\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\defaultskin\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\defaultskin\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\defaultskin\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\defaultskin\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\fullwidthdark\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\fullwidthdark\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\fullwidthdark\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\fullwidthdark\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\fullwidth\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\fullwidth\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\fullwidth\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\fullwidth\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\glass\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\glass\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\glass\shadow.png" />
+    <Content Include="Assets\plugins\layerslider\skins\glass\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\glass\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\lightskin\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\lightskin\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\lightskin\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\lightskin\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\minimal\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\minimal\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\minimal\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\minimal\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\noskin\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\noskin\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\noskin\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\noskin\skin.png" />
+    <Content Include="Assets\plugins\layerslider\skins\v5\loading.gif" />
+    <Content Include="Assets\plugins\layerslider\skins\v5\nothumb.png" />
+    <Content Include="Assets\plugins\layerslider\skins\v5\skin.css" />
+    <Content Include="Assets\plugins\layerslider\skins\v5\skin.png" />
+    <Content Include="Assets\plugins\magnific-popup\jquery.magnific-popup.js" />
+    <Content Include="Assets\plugins\magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="Assets\plugins\magnific-popup\magnific-popup.css" />
+    <Content Include="Assets\plugins\masonry.js" />
+    <Content Include="Assets\plugins\modernizr.min.js" />
+    <Content Include="Assets\plugins\owl-carousel\AjaxLoader.gif" />
+    <Content Include="Assets\plugins\owl-carousel\grabbing.png" />
+    <Content Include="Assets\plugins\owl-carousel\owl.carousel.css" />
+    <Content Include="Assets\plugins\owl-carousel\owl.carousel.js" />
+    <Content Include="Assets\plugins\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Assets\plugins\owl-carousel\owl.pack.css" />
+    <Content Include="Assets\plugins\owl-carousel\owl.theme.css" />
+    <Content Include="Assets\plugins\owl-carousel\owl.transitions.css" />
+    <Content Include="Assets\plugins\plugins.txt" />
+    <Content Include="Assets\plugins\respond.js" />
+    <Content Include="Assets\plugins\revolution-slider\assets\arrowleft.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\arrowright.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\arrow_large_left.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\arrow_large_right.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\arrow_left.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\arrow_left2.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\arrow_right.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\arrow_right2.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\black50.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\boxed_bgtile.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\bullet.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\bullets.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\bullets2.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\bullet_boxed.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\coloredbg.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\grain.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\gridtile.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\gridtile_3x3.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\gridtile_3x3_white.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\gridtile_white.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\large_left.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\large_right.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\loader.gif" />
+    <Content Include="Assets\plugins\revolution-slider\assets\loader2.gif" />
+    <Content Include="Assets\plugins\revolution-slider\assets\navigdots.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\navigdots_bgtile.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\shadow1.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\shadow2.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\shadow3.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\small_left.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\small_left_boxed.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\small_right.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\small_right_boxed.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\timer.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\timerdot.png" />
+    <Content Include="Assets\plugins\revolution-slider\assets\transparent.jpg" />
+    <Content Include="Assets\plugins\revolution-slider\assets\white50.png" />
+    <Content Include="Assets\plugins\revolution-slider\css\settings-ie8.css" />
+    <Content Include="Assets\plugins\revolution-slider\css\settings.css" />
+    <Content Include="Assets\plugins\revolution-slider\editor\assets\logo.png" />
+    <Content Include="Assets\plugins\revolution-slider\editor\assets\prebg.png" />
+    <Content Include="Assets\plugins\revolution-slider\editor\assets\transparent.jpg" />
+    <Content Include="Assets\plugins\revolution-slider\editor\assets\transparent.png" />
+    <Content Include="Assets\plugins\revolution-slider\editor\assets\transtiled.png" />
+    <Content Include="Assets\plugins\revolution-slider\editor\assets\trans_tile.png" />
+    <Content Include="Assets\plugins\revolution-slider\editor\assets\trans_tile2.png" />
+    <Content Include="Assets\plugins\revolution-slider\editor\editor.css" />
+    <Content Include="Assets\plugins\revolution-slider\editor\editor.js" />
+    <Content Include="Assets\plugins\revolution-slider\editor\type\fontello.css" />
+    <Content Include="Assets\plugins\revolution-slider\editor\type\fontello\fontello-social.svg" />
+    <Content Include="Assets\plugins\revolution-slider\editor\type\fontello\fontello.svg" />
+    <Content Include="Assets\plugins\revolution-slider\font\revicons.svg" />
+    <Content Include="Assets\plugins\revolution-slider\images\decor_inside.png" />
+    <Content Include="Assets\plugins\revolution-slider\images\decor_inside_white.png" />
+    <Content Include="Assets\plugins\revolution-slider\images\decor_testimonial.png" />
+    <Content Include="Assets\plugins\revolution-slider\images\gradient\g30.png" />
+    <Content Include="Assets\plugins\revolution-slider\images\gradient\g40.png" />
+    <Content Include="Assets\plugins\revolution-slider\js\jquery.themepunch.plugins.min.js" />
+    <Content Include="Assets\plugins\revolution-slider\js\jquery.themepunch.revolution.js" />
+    <Content Include="Assets\plugins\revolution-slider\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Assets\plugins\revolution-slider\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Assets\plugins\revolution-slider\videojs\demo.html" />
+    <Content Include="Assets\plugins\revolution-slider\videojs\font\vjs.svg" />
+    <Content Include="Assets\plugins\revolution-slider\videojs\video-js.css" />
+    <Content Include="Assets\plugins\revolution-slider\videojs\video-js.min.css" />
+    <Content Include="Assets\plugins\revolution-slider\videojs\video-js.png" />
+    <Content Include="Assets\plugins\revolution-slider\videojs\video-js.swf" />
+    <Content Include="Assets\plugins\revolution-slider\videojs\video.dev.js" />
+    <Content Include="Assets\plugins\revolution-slider\videojs\video.js" />
+    <Content Include="Assets\plugins\styleswitcher\color_schemes\1.png" />
+    <Content Include="Assets\plugins\styleswitcher\color_schemes\10.png" />
+    <Content Include="Assets\plugins\styleswitcher\color_schemes\2.png" />
+    <Content Include="Assets\plugins\styleswitcher\color_schemes\3.png" />
+    <Content Include="Assets\plugins\styleswitcher\color_schemes\4.png" />
+    <Content Include="Assets\plugins\styleswitcher\color_schemes\5.png" />
+    <Content Include="Assets\plugins\styleswitcher\color_schemes\6.png" />
+    <Content Include="Assets\plugins\styleswitcher\color_schemes\7.png" />
+    <Content Include="Assets\plugins\styleswitcher\color_schemes\8.png" />
+    <Content Include="Assets\plugins\styleswitcher\color_schemes\9.png" />
+    <Content Include="Assets\plugins\styleswitcher\sample.html" />
+    <Content Include="Assets\plugins\styleswitcher\styleswitcher.css" />
+    <Content Include="Assets\plugins\styleswitcher\styleswitcher.js" />
+    <Content Include="Assets\images\ajax-loader.gif" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Assets\images\barloader.gif" />
+    <Content Include="Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_100_AD5251_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_65_AD5251_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_75_AD5251_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_75_e6e6e6_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\images\ui-icons_AD5251_256x240.png" />
+    <Content Include="Content\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\jquery-ui.structure.css" />
+    <Content Include="Content\jquery-ui.structure.min.css" />
+    <Content Include="Content\jquery-ui.theme.css" />
+    <Content Include="Content\jquery-ui.theme.min.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\fonts\FontAwesome.otf" />
+    <Content Include="Assets\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Assets\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Assets\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Assets\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="Assets\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="Assets\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="Assets\fonts\WeatherIcons-Regular.otf" />
+    <Content Include="Assets\images\demo\desktop.fla" />
+    <Content Include="Assets\images\demo\desktop_slider.fla" />
+    <Content Include="Assets\images\demo\features.fla" />
+    <Content Include="Assets\images\demo\logo\logo.fla" />
+    <Content Include="Assets\images\demo\shop\slider\fs_1.fla" />
+    <Content Include="Assets\images\demo\shop\slider\fs_2.fla" />
+    <Content Include="Assets\images\demo\shop\slider\fs_3.fla" />
+    <Content Include="Assets\images\fla.zip" />
+    <Content Include="Assets\images\revolution_slider\assets\arrows.psd" />
+    <Content Include="Assets\images\revolution_slider\assets\bullets.psd" />
+    <Content Include="Assets\images\revolution_slider\assets\small_arrows.psd" />
+    <Content Include="Assets\images\revolution_slider\font\revicons.eot" />
+    <Content Include="Assets\images\revolution_slider\font\revicons.ttf" />
+    <Content Include="Assets\images\revolution_slider\font\revicons.woff" />
+    <Content Include="Assets\plugins\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Assets\plugins\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\plugins\flexslider\fonts\flexslider-icon.eot" />
+    <Content Include="Assets\plugins\flexslider\fonts\flexslider-icon.ttf" />
+    <Content Include="Assets\plugins\flexslider\fonts\flexslider-icon.woff" />
+    <Content Include="Assets\plugins\ion-range-slider\PSD\sprite-skin.psd" />
+    <Content Include="Assets\plugins\jquery-2.1.1.min.map" />
+    <Content Include="Assets\plugins\knob\bower.json" />
+    <Content Include="Assets\plugins\knob\knob.jquery.json" />
+    <Content Include="Assets\plugins\knob\LICENSE" />
+    <Content Include="Assets\plugins\knob\README.md" />
+    <Content Include="Assets\plugins\plugins.zip" />
+    <Content Include="Assets\plugins\revolution-slider\assets\arrows.psd" />
+    <Content Include="Assets\plugins\revolution-slider\assets\bullets.psd" />
+    <Content Include="Assets\plugins\revolution-slider\assets\small_arrows.psd" />
+    <Content Include="Assets\plugins\revolution-slider\editor\type\fontello\fontello-social.eot" />
+    <Content Include="Assets\plugins\revolution-slider\editor\type\fontello\fontello-social.ttf" />
+    <Content Include="Assets\plugins\revolution-slider\editor\type\fontello\fontello-social.woff" />
+    <Content Include="Assets\plugins\revolution-slider\editor\type\fontello\fontello.eot" />
+    <Content Include="Assets\plugins\revolution-slider\editor\type\fontello\fontello.ttf" />
+    <Content Include="Assets\plugins\revolution-slider\editor\type\fontello\fontello.woff" />
+    <Content Include="Assets\plugins\revolution-slider\font\revicons.eot" />
+    <Content Include="Assets\plugins\revolution-slider\font\revicons.ttf" />
+    <Content Include="Assets\plugins\revolution-slider\font\revicons.woff" />
+    <Content Include="Assets\plugins\revolution-slider\videojs\demo.captions.vtt" />
+    <Content Include="Assets\plugins\revolution-slider\videojs\font\vjs.eot" />
+    <Content Include="Assets\plugins\revolution-slider\videojs\font\vjs.ttf" />
+    <Content Include="Assets\plugins\revolution-slider\videojs\font\vjs.woff" />
+    <Content Include="Assets\plugins\styleswitcher\color_schemes\color_scheme.fla" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Collaboratr\collaboratr.modules.js" />
+    <Content Include="Scripts\Collaboratr\collaboratr.login.js" />
+    <Content Include="Scripts\Collaboratr\collaboratr.login.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_Layout_Chat.cshtml" />
+    <Content Include="Views\Room\Join.cshtml" />
+    <Content Include="Views\Room\Create.cshtml" />
+    <Content Include="Views\Room\Browse.cshtml" />
+    <Content Include="Views\Shared\_Layout_Browse.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>19785</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:19785/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

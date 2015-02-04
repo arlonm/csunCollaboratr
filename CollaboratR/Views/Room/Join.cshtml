@@ -1,0 +1,279 @@
+﻿@model CollaboratR.ViewModels.RoomViewModel
+@{
+    ViewBag.Title = "Session";
+    Layout = "~/Views/Shared/_Layout_Chat.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-2" id="side-bar">
+        <div class="row" id="user-space">
+            <div class="col-md-12" id="user-list"></div>
+        </div>
+        <div class="row" id="tool-space">
+            <div class="col-md-12" id="tool-list"></div>
+        </div>
+    </div>
+    <div class="col-md-10" >
+        <div id="collaboration-space">
+        </div>
+    </div>
+</div>
+  @*Modal*@ 
+<div class="modal fade" id="connection-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Loading</h4>
+            </div>
+            <div class="modal-body">
+                <div id="loading-icon">
+                    <p>Room is loading, please wait.</p>
+                    <img src="~/Assets/images/barloader.gif"/>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>
+<input type="hidden" id="userGuid" value="@Model.JoiningUser.UserGuid" />
+<input type="hidden" id="userName" value="@Model.JoiningUser.Username" />
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/jquery-ui.js"></script>
+    @*Signal R*@ 
+    <script src="~/Scripts/jquery.signalR-2.1.2.js"></script>
+    <script src="~/signalr/hubs"></script>
+    @*Custom Inner Scripts*@
+    @*<script src="~/Scripts/Collaboratr/collaboratr.modules.js"></script>*@
+    <script type="text/javascript" >
+        $(function () {
+            $('#connection-modal').modal('show');
+            //Query string searcher function
+            //Accessed by queryString["Key"]
+            var queryString = (function (a) {
+                if (a == "") return {};
+                var b = {};
+                for (var i = 0; i < a.length; ++i) {
+                    var p = a[i].split('=', 2);
+                    if (p.length == 1)
+                        b[p[0]] = "";
+                    else
+                        b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+                }
+                return b;
+            })(window.location.search.substr(1).split('&'));
+
+            //These values represent what is being updated by this user
+            var updateRoom = false;
+            var curModule = null;
+
+            var roomIdentifier = queryString["RoomId"];
+            var userIdentifier = $('#userGuid').val();
+            var userName = $('#userName').val();
+            var collaborationHub = $.connection.collaborationHub;
+            var clientModules = [];
+
+            //Takes in an object of type room model
+            collaborationHub.client.displayRoom = function (model) {
+                if (model.Modules != null) {
+                    for (var i = 0; i < model.Modules.length; i++) {
+                        var moduleDOM = $('<div id="module_' + model.Modules[i].ModuleId + '" style="position:absolute;"/>');
+                        //Need to check permissions at some point
+                        //And remove options based on user permissions
+                        var w = model.Modules[i].ModuleWidth;
+                        var h = model.Modules[i].ModuleHeight;
+
+                        moduleDOM.dialog({
+                            appendTo: "#collaboration-space",
+                            position: {
+                                my: "left top",
+                                at: "left+" + model.Modules[i].ModuleX + " top+" + model.Modules[i].ModuleY,
+                                of: "#collaboration-space"
+                            }
+                        }).parent('.ui-dialog').css("height", h + "px").css("width", w + "px")
+                            .data("moduleId", model.Modules[i].ModuleId).data("moduleTypeId", model.Modules[i].ModuleTypeId);
+
+                        dialog = moduleDOM.parent('.ui-dialog');
+                        dialog.draggable("option", "containment", "#collaboration-space");
+
+
+                        ////If user can drag
+                        moduleDOM.parent('.ui-dialog').on('drag resize',
+                            function (event, ui) {
+                                curModule = $(this);
+                                updateRoom = true;
+                            });
+                        dispatchModuleCreate(moduleDOM.parent('.ui-dialog'), model.Modules[i]);
+                    }
+                }
+                //Hide the modal popup
+                $('#connection-modal').modal('hide');
+            };
+            collaborationHub.client.broadcastUserlist = function (arrUsers) {
+                var userList = $('#user-list');
+                userList.empty();
+                for (var i = 0; i < arrUsers.length; i++) {
+                    userList.append($('<a class=list-group-item>' + arrUsers[i].Username + '</a>'));
+                }
+            };
+            //Update a user's users list to show any new people who have joined
+            collaborationHub.client.addUserToList = function (user) {
+                var userList = $('#user-list');
+                userList.append($('<a class=list-group-item>' + user.Username + '</a>'));
+            };
+            collaborationHub.client.removeUserFromList = function (user) {
+                var userList = $('#user-list');
+                userList.children().each(function () {
+                    if ($(this).text() == user.Username) {
+                        $(this).remove();
+                    }
+                });
+            };
+            collaborationHub.client.updateModuleContent = function (moduleData) {
+                $('#collaboration-space').children('.ui-dialog').each(function () {
+                    if ($(this).data("moduleId") == moduleData.ModuleId) {
+                        
+                        dispatchModuleUpdate($(this), moduleData);
+                    }
+                });
+
+            }
+            collaborationHub.client.updateModule = function (moduleData) {
+                $('#collaboration-space').children('.ui-dialog').each(function () {
+                    if ($(this).data("moduleId") == moduleData.ModuleId) {
+                        $(this).animate({
+                            left: moduleData.ModuleX,
+                            top: moduleData.ModuleY,
+                            width: moduleData.ModuleWidth,
+                            height: moduleData.ModuleHeight
+                        }, {
+                            duration: 200, queue: false
+                        });
+//                        dispatchModuleUpdate($(this), moduleData);
+                    }
+                });
+            };
+            //$.connection.hub.fail(function () {
+            //    $('#connection-modal').modal('hide');
+            //    window.location.href = "/Home/Index";
+            //});
+            //Hub server function implementations
+            $.connection.hub.start({ waitForPageLoad: true }).done(function () {
+
+                //After the connection is complete, then define the server side functions
+
+                //Have the user join the room through the Hub
+                collaborationHub.server.joinRoom(roomIdentifier, { UserGuid: userIdentifier, Username: userName });
+
+                //Load the room module information for the user
+                collaborationHub.server.loadRoomInformation(roomIdentifier);
+
+                //Load all of the users in the room
+                collaborationHub.server.loadRoomUserList(roomIdentifier);
+
+                //Set the repeating server call loop to update when the user has moved a module
+                setInterval(function () {
+                    if (updateRoom == true) {
+                        updateRoom = false;
+                        collaborationHub.server.updateModule(roomIdentifier, userIdentifier, {
+                            ModuleId: curModule.data("moduleId"),
+                            ModuleX: parseInt(curModule.css("left")),
+                            ModuleY: parseInt(curModule.css("top")),
+                            ModuleWidth: parseInt(curModule.css("width")),
+                            ModuleHeight: parseInt(curModule.css("height")),
+                            ModulePermissions: 0,
+                            ModuleContent: "",
+                            ModuleTypeId: 0,
+                            ModuleRaw: ""
+                        });
+                        curModule = null;
+                    }
+                }, 100);
+            });
+
+            var dispatchModuleCreate = function (module, data) {
+                switch (data.ModuleTypeId) {
+                    case 1:
+                        createChatModule(module, data);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            var dispatchModuleUpdate = function (module, data) {
+                switch(data.ModuleTypeId)
+                {
+                    case 1:
+                        updateChatModule(module, data);
+                        break;
+                    default:
+                        break;
+                }
+            };
+            //=----------------------------------------------------------------------
+            //=----------------------Functionality For Modules-----------------------
+            //=----------------------------------------------------------------------
+            /*
+       Chat JSON Object Description
+       {
+           "log": ["oldest chat", "newer chat", "newest chat"]
+       }
+   */
+            //ModuleTypeId = 1
+            var createChatModule = function (module, data) {
+                var chatObj = JSON.parse(data.ModuleContent);
+                //module.append($('<ul class="chat-space"></ul>'));
+                module.data("moduleContent", data.ModuleContent);
+                module.append($('<div class="chat-space list-group" ></div>'));
+                for (var i = 0 ; i < chatObj.log.length; i++) {
+                    //module.children('.chat-space').append('<li class="list-group-item">' + chatObj.log[i] + '</li>');
+                    module.children('.chat-space').append('<a class="list-group-item">' + chatObj.log[i] + '</a>');
+                }
+                module.append($('<div class="chat-input-wrapper"><input type="text" class="chat-input"/> <button class="btn btn-primary btn-chat-send">Send</div>'));
+                module.find('.btn-chat-send').click(function () {
+                    var parentDOM = $(this).parents('.ui-dialog');
+                    var newData = JSON.parse(parentDOM.data("moduleContent"));
+                    newData.log.push($(this).siblings(".chat-input").val());
+                    collaborationHub.server.updateModuleContent(
+                        roomIdentifier, userIdentifier,
+                        parseInt($(this).parents('.ui-dialog').data('moduleId'), 10),
+                        parseInt($(this).parents('.ui-dialog').data('moduleTypeId'), 10),
+                        JSON.stringify(newData));
+                });
+            }
+            var updateChatModule = function (module, data) {
+                var chatObj = JSON.parse(data.ModuleContent);
+                //module.children('.chat-space').append('<li class="list-group-item">' + chatObj.log[chatObj.length - 1] + '</li>');
+                module.children('.chat-space').append('<a class="list-group-item">' + chatObj.log[chatObj.log.length - 1] + '</a>');
+            };
+
+            /*
+            WhiteBoard JSON Object Description
+                {
+                    "lines":[
+                        {
+                            "x1":5,
+                            "y1":10,
+                            "x2":20,
+                            "y2":30,
+                            "color":"#RRGGBB"
+                            "thickness":"5px"
+                        },
+                        {
+                            "x1":5,
+                            "y1":10,
+                            "x2":20,
+                            "y2":30,
+                            "color":"#RRGGBB"
+                            "thickness":"5px"
+                        }
+                    ]
+                }
+            */
+            var renderWhiteBoardModule = function (module, data) {
+
+            }
+
+
+        });
+    </script>
+}
