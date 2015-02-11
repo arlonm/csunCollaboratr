@@ -37,6 +37,7 @@
 </div>
 <input type="hidden" id="userGuid" value="@Model.JoiningUser.UserGuid" />
 <input type="hidden" id="userName" value="@Model.JoiningUser.Username" />
+<input type="hidden" id="currentRoomId" value="@Model.Room.RoomGuid" />
 @section scripts{
     <script type="text/javascript" src="~/Scripts/jquery-ui.js"></script>
     @*Signal R*@ 
@@ -66,7 +67,9 @@
             var updateRoom = false;
             var curModule = null;
 
-            var roomIdentifier = queryString["RoomId"];
+            var roomIdentifierFromUrl = queryString["roomGuid"];
+            var roomIdentifier = ( (roomIdentifierFromUrl != null && roomIdentifierFromUrl != "") ? queryString["roomGuid"] : $('#currentRoomId').val().trim());
+            console.log("line 70: " + roomIdentifier);
             var userIdentifier = $('#userGuid').val();
             var userName = $('#userName').val();
             var collaborationHub = $.connection.collaborationHub;
@@ -162,6 +165,7 @@
                 //After the connection is complete, then define the server side functions
 
                 //Have the user join the room through the Hub
+                console.log("Here: " + roomIdentifier);
                 collaborationHub.server.joinRoom(roomIdentifier, { UserGuid: userIdentifier, Username: userName });
 
                 //Load the room module information for the user
