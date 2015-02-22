@@ -67,10 +67,11 @@
                         {
                             <div>Hello, @Utility.GetRequestUsername(User)</div>
                         }
+                        <!-- Commenting out as requested
                         else
                         {
                             <div><a data-toggle="modal" data-target="#login-modal">Log in</a></div>
-                        }
+                        }-->
                         <!-- mail , phone -->
                         <a href="mailto:support@collaboratr.net">support@collaboratr.net</a> &bull; 1-800-555-1234
                         <div class="block text-right">
@@ -121,12 +122,13 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <!--
                                 <li>
                                     <a href="#">About Us <span>Meet the creators.</span></a>
                                 </li>
                                 <li >
                                     <a href="#">Contact <span>Write to us.</span></a>
-                                </li>
+                                </li>                                
                                 @if (Request.IsAuthenticated)
                                 {
                                     <li><a href="~/Account/Logout">Log out<span>Goodbye!</span></a></li>
@@ -136,7 +138,7 @@
                                 {
                                     <li><a data-toggle="modal" class="nav nav-pills nav-right" data-target="#login-modal">Log in <span>Have an account?</span></a></li>
                                     <li><a href="~/Account/Register" class="nav nav-pills nav-right">Register <span>Need one?</span></a></li>
-                                }
+                                }-->
                             </ul>
                         </nav>
                     </div>
@@ -153,24 +155,24 @@
             <div class="container">
                 <div class="row">
                     <!-- col #1 -->
-                    <div class="logo_footer dark col-md-3">
-                        <p class="block">
-                            &bull; <a href="#">About us</a><br />
-                            &bull; <a href="#">Contact</a><br />
-                            &bull; <a href="#">Collaborate Now</a><br />
-                            &bull; <a href="#">Support Us</a><br />
-                        </p>
-                        <p class="block">
-                            <!-- social -->
-                            <a href="#" class="social fa fa-facebook"></a>
-                            <a href="#" class="social fa fa-twitter"></a>
-                            <a href="#" class="social fa fa-google-plus"></a>
-                            <a href="#" class="social fa fa-linkedin"></a>
-                        </p><!-- /social -->
-                    </div>
+                    @*<div class="logo_footer dark col-md-3">
+        <p class="block">
+            &bull; <a href="#">About us</a><br />
+            &bull; <a href="#">Contact</a><br />
+            &bull; <a href="#">Collaborate Now</a><br />
+            &bull; <a href="#">Support Us</a><br />
+        </p>
+        <p class="block">
+            <!-- social -->
+            <a href="#" class="social fa fa-facebook"></a>
+            <a href="#" class="social fa fa-twitter"></a>
+            <a href="#" class="social fa fa-google-plus"></a>
+            <a href="#" class="social fa fa-linkedin"></a>
+        </p><!-- /social -->
+    </div>*@
                     <!-- /col #1 -->
                     <!-- col #2 -->
-                    <div class="spaced col-md-3 col-sm-4 hidden-xs">
+                    <!--<div class="spaced col-md-3 col-sm-4 hidden-xs">
                         <h4>Learn about <strong>Partnership</strong></h4>
                         <ul class="list-unstyled">
                             @*<li>
@@ -186,10 +188,10 @@
                                 <small></small>
                             </li>
                         </ul>
-                    </div>
+                    </div>-->
                     <!-- /col #2 -->
                     <!-- col #3 -->
-                    <div class="spaced col-md-3 col-sm-4 hidden-xs">
+                    <!--<div class="spaced col-md-3 col-sm-4 hidden-xs">
                         <h4>Support Us <strong>Donate Now</strong></h4>
                         <ul class="list-unstyled fsize13">
                             <li>
@@ -197,11 +199,14 @@
                                 <small></small>
                             </li>
                         </ul>
-                    </div>
+                    </div>-->
                 </div>
+                <!-- /row -->
             </div>
+            <!--/container-->
+
             <hr />
-            <div class="copyright">
+            <div class="copyright" style="height:300px;">
                 <div class="container text-center fsize12">
                     <a href="#" target="_blank" title="bootstrap themes &amp; templates" class="copyright">CollaboratR</a> &bull; All Right Reserved &copy;&nbsp;
                     <a href="page-privacy.html" class="fsize11">Privacy Policy</a> &bull;
