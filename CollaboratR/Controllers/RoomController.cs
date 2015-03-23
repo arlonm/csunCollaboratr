@@ -70,7 +70,7 @@ namespace CollaboratR.Controllers
             RoomViewModel roomViewModel = new RoomViewModel();
             roomViewModel.Room = Hubs.CollaborationHub.CollaborationRooms[RoomId];
             roomViewModel.JoiningUser = new RoomUserModel();
-            roomViewModel.JoiningUser.UserGuid = Guid.NewGuid().ToString();
+            roomViewModel.JoiningUser.UserGuid = Guid.NewGuid().ToString();//this creates a new guid every time it loads for even the same user
             //Identify user information 
             if (Request.IsAuthenticated)
             {

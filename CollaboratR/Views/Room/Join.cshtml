@@ -5,16 +5,26 @@
 }
 
 <div class="row">
-    <div class="col-md-2" id="side-bar">
+    <div class="col-md-2" id="side-bar" style="padding-right:0px;" >
         <div class="row" id="user-space">
+            <div class="col-md-12" style="text-align: center;  margin-top: 5px;  margin-bottom: 5px;  color: #000;  font-weight: bold;" >
+                People in this room
+            </div>
             <div class="col-md-12" id="user-list"></div>
         </div>
         <div class="row" id="tool-space">
             <div class="col-md-12" id="tool-list"></div>
         </div>
     </div>
-    <div class="col-md-10" >
-        <div id="collaboration-space">
+    <div class="col-md-10" style="padding-left:0px;" >
+        <div id="collaboration-space" class="container">
+            <div class="row">
+                <div class="col-md-6" style="height:800px;">
+                    <div style="height:80%;border:1px solid grey;width:100%;" ></div>
+                    <div style="height:20%;border:1px solid grey;width:100%;"></div>
+                </div>
+                <div class="col-md-6">.col-md-6</div>
+            </div>
         </div>
     </div>
 </div>
@@ -114,14 +124,20 @@
             collaborationHub.client.broadcastUserlist = function (arrUsers) {
                 var userList = $('#user-list');
                 userList.empty();
+                console.log("Number " + arrUsers.length);
+                //the new user guid combined with anonymous users messes up the join room user logic, this just makes sure you dont see yourself more than once
+                var s = "";
                 for (var i = 0; i < arrUsers.length; i++) {
-                    userList.append($('<a class=list-group-item>' + arrUsers[i].Username + '</a>'));
+                    if (s.indexOf(arrUsers[i].Username) == -1) {
+                        s += arrUsers[i].Username;
+                        userList.append($('<a class=list-group-item>' + arrUsers[i].Username + '</a>'));
+                    }
                 }
-            };
+            }
             //Update a user's users list to show any new people who have joined
             collaborationHub.client.addUserToList = function (user) {
                 var userList = $('#user-list');
-                userList.append($('<a class=list-group-item>' + user.Username + '</a>'));
+                userList.append($('<a class=list-group-item>' + user.Username + '</a>'));               
             };
             collaborationHub.client.removeUserFromList = function (user) {
                 var userList = $('#user-list');
@@ -165,7 +181,6 @@
                 //After the connection is complete, then define the server side functions
 
                 //Have the user join the room through the Hub
-                console.log("Here: " + roomIdentifier);
                 collaborationHub.server.joinRoom(roomIdentifier, { UserGuid: userIdentifier, Username: userName });
 
                 //Load the room module information for the user
@@ -175,6 +190,7 @@
                 collaborationHub.server.loadRoomUserList(roomIdentifier);
 
                 //Set the repeating server call loop to update when the user has moved a module
+                //WONT USE THIS?
                 setInterval(function () {
                     if (updateRoom == true) {
                         updateRoom = false;
@@ -194,10 +210,11 @@
                 }, 100);
             });
 
+            //Commenting dynamic modules out for now
             var dispatchModuleCreate = function (module, data) {
                 switch (data.ModuleTypeId) {
                     case 1:
-                        createChatModule(module, data);
+                        //createChatModule(module, data);
                         break;
                     default:
                         break;
@@ -207,12 +224,12 @@
                 switch(data.ModuleTypeId)
                 {
                     case 1:
-                        updateChatModule(module, data);
+                        //updateChatModule(module, data);
                         break;
                     default:
                         break;
                 }
-            };
+            }
             //=----------------------------------------------------------------------
             //=----------------------Functionality For Modules-----------------------
             //=----------------------------------------------------------------------
