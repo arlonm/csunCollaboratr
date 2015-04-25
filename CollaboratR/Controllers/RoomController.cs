@@ -67,6 +67,9 @@ namespace CollaboratR.Controllers
              *  room permissions, this will entirely avoid the use of SQL
              
              */
+
+            //TO DO
+            //So according to John the error in dup names is bacause users arent kicked out when they exit. 
             RoomViewModel roomViewModel = new RoomViewModel();
             roomViewModel.Room = Hubs.CollaborationHub.CollaborationRooms[RoomId];
             roomViewModel.JoiningUser = new RoomUserModel();
