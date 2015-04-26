@@ -116,6 +116,14 @@ function DrawIt(drawObject, syncServer) {
             }
        
     }
+
+    if (syncServer && drawObject.Tool != DrawTool.Pencil) {
+
+        drawObjectsCollection = [];
+        drawObjectsCollection.push(drawObject);
+        var message = JSON.stringify(drawObjectsCollection);
+        whiteboardHub.server.sendDraw(message, $("#sessinId").val(), $("#groupName").val(), $("#userName").val());
+    }
 }
 
 function toggleBG1()
@@ -174,8 +182,8 @@ $(document).ready(function () {
             alert('Error: no canvas.getContext!');
             return;
         }
-        canvaso.width = 700;
-        canvaso.height = 400;
+        canvaso.width = 400;
+        canvaso.height = 700;
 
         // Get the 2D canvas context.
         contexto = canvaso.getContext('2d');
@@ -321,14 +329,14 @@ tools.pencil = function () {
             DrawIt(drawObject, true);
             drawObjectsCollection.push(drawObject);
             var message = JSON.stringify(drawObjectsCollection);
-           // whiteboardHub.server.sendDraw(message, $("#sessinId").val(),$("#groupName").val(),$("#userName").val());
+            whiteboardHub.server.sendDraw(message, $("#sessinId").val(),$("#groupName").val(),$("#userName").val());
 
         }
     };
     this.mouseout = function (ev) {
         if (tool.started) {
             var message = JSON.stringify(drawObjectsCollection);
-          //  whiteboardHub.server.sendDraw(message, $("#sessinId").val(),$("#groupName").val(),$("#userName").val());
+            whiteboardHub.server.sendDraw(message, $("#sessinId").val(),$("#groupName").val(),$("#userName").val());
         }
         tool.started = false; 
 
@@ -403,6 +411,32 @@ tools.line = function () {
         }
     };
 };
+//added this function, only the last two fns were there
+tools.text = function () {
+    var tool = this;
+    this.started = false;
+    var drawObject = new DrawObject();
+    drawObject.Tool = DrawTool.Text;
+    this.mousedown = function (ev) {
+
+        if (!tool.started) {
+            tool.started = true;
+            drawObject.currentState = DrawState.Started;
+            drawObject.StartX = ev._x;
+            drawObject.StartY = ev._y;
+            var text_to_add = prompt('Enter the text:', ' ', 'Add Text');
+            drawObject.Text = "";
+            drawObject.Text = text_to_add;
+            if (text_to_add.length < 1) {
+                tool.started = false;
+                return;
+            }
+
+            DrawIt(drawObject, true);
+            tool.started = false;
+            updatecanvas();
+        }
+    };
 
     this.mousemove = function (ev) {
         if (!tool.started) {
@@ -510,24 +544,24 @@ function ChangeIcons(toolName)
 {
 
  if(toolName=="line")
-  $("#imgline").attr({src:"/images/line.png", border:"1px" });
+  $("#imgline").attr({src:"/assets/images/line.png", border:"1px" });
  else
-  $("#imgline").attr({src:"/images/line_dim.png",border:"0px" });
+     $("#imgline").attr({ src: "/assets/images/line_dim.png", border: "0px" });
 
   if(toolName=="pencil")
-    $("#imgpencil").attr({src:"/images/pencil.png",border:"1px" });
+      $("#imgpencil").attr({ src: "/assets/images/pencil.png", border: "1px" });
   else
-    $("#imgpencil").attr({src:"/images/pencil_dim.png",border:"0px" });
+      $("#imgpencil").attr({ src: "/assets/images/pencil_dim.png", border: "0px" });
 
      if(toolName=="rect")
-    $("#imgrect").attr({src:"/images/rect.png",border:"1px" });
+         $("#imgrect").attr({ src: "/assets/images/rect.png", border: "1px" });
   else
-    $("#imgrect").attr({src:"/images/rect_dim.png",border:"0px" });
+         $("#imgrect").attr({ src: "/assets/images/rect_dim.png", border: "0px" });
 
      if(toolName=="erase")
-    $("#imgerase").attr({src:"/images/erase.png",border:"1px" });
+         $("#imgerase").attr({ src: "/assets/images/erase.png", border: "1px" });
   else
-    $("#imgerase").attr({src:"/images/erase_dim.png", border:"0px" });
+         $("#imgerase").attr({ src: "/assets/images/erase_dim.png", border: "0px" });
 
 }
 function getAbsolutePosition(e) {
@@ -547,3 +581,50 @@ function getAbsolutePosition(e) {
 
 
 var drawobjects = [];
+function JoinHub() {
+
+    $(function() {
+        var name = $("#userName").val();
+        //var name = $.trim(name);
+
+        //if (name.length > 0) {
+        //    $("#userName").val(name);
+
+    }
+        );
+
+            whiteboardHub = $.connection.whiteboardHub;
+            whiteboardHub.client.handleDraw = function (message, sessnId, name) {
+                var sessId = $('#sessinId').val();
+                if (sessId != sessnId) {
+                    $("#divStatus").html("");
+
+                    $("#divStatus").html("<i>" + name + " drawing...</i>")
+                    var drawObjectCollection = jQuery.parseJSON(message)
+                    for (var i = 0; i < drawObjectCollection.length; i++) {
+                        DrawIt(drawObjectCollection[i], false);
+                        if (drawObjectCollection[i].currentState) {
+                            if (drawObjectCollection[i].currentState == DrawState.Completed) {
+                                $("#divStatus").html("<i>" + name + " drawing completing...</i>")
+                                $("#divStatus").html("");
+                            }
+                        }
+                    }
+                }
+
+
+
+            };
+            var sendMessage = function () {
+                whiteboardHub.sendChat($(".chat-message").val(), $("#groupName").val(), $("#userName").val());
+            };
+
+
+            $.connection.hub.start().done(function () {
+                whiteboardHub.server.joinGroup($("#groupName").val()).done(function () { whiteboardHub.server.joinChat($("#userName").val(), $("#groupName").val()); });
+            });
+
+   
+
+        }
+    

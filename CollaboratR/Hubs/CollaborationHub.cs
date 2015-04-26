@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Collections.Concurrent;
 using System.Web;
 using CollaboratR.Models;
+using CollaboratR.WhiteboardHub;
+using Microsoft.AspNet.SignalR.Hubs;
+
 
 namespace CollaboratR.Hubs
 {

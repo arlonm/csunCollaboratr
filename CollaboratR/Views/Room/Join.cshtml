@@ -13,33 +13,33 @@
 
 <style type="text/css">
        #whiteboard {
-       border 1px dashed #cccccc;
-       margin 5px;
-       border-style dotted;
-       border-width 1px;
-       background-color #ffffff;
-       vertical-align top;
+       border: 1px dashed #cccccc;
+       margin: 5px;
+       border-style: dotted;
+       border-width: 1px;
+       background-color: #ffffff;
+       vertical-align: top;
        }
-       #container {
-       position relative;
-       overflow auto;
-       scrollbar-base-color #ffeaff;
+       #containerw {
+       position: relative;
+       overflow: auto;
+       scrollbar-base-color: #ffeaff;
        }
-       #imagetemp {
-       position absolute;
-       top 1px;
-       left 1px;
-       margin 5px;
+       #imageTemp {
+       position: absolute;
+       top: 1px;
+       left: 1px;
+       /*margin: 5px; makes a bigger show*/
        }
-       #imagetempt {
-       position absolute;
-       top 1px;
-       left 1px;
-       margin 5px;
+       #imageTempt {
+       position: absolute;
+       top: 1px;
+       left: 1px;
+       margin: 5px;
        }
        .ui-widget-overlay {
-       opacity .70;
-       filter alpha(opacity=70);
+       opacity: .70;
+       filter: alpha(opacity=70);
        }
  </style>
 <div class="row">
@@ -87,7 +87,7 @@
                                     </tr>
                                     <tr>
                                         <td style="vertical-align: top;">
-                                            <div id="container" style="width: 420px; height: 800px">
+                                            <div id="containerw" style="width: 420px; height: 800px">
                                                 <canvas id="whiteBoard"></canvas>
                                                 <div id="status">
                                                 </div>
@@ -125,10 +125,13 @@
 <input type="hidden" id="userGuid" value="@Model.JoiningUser.UserGuid" />
 <input type="hidden" id="userName" value="@Model.JoiningUser.Username" />
 <input type="hidden" id="currentRoomId" value="@Model.Room.RoomGuid" />
+<input type="hidden" id="sessinId" value="@Session.SessionID" />
+<input type="hidden" id="groupName" value="@ViewData["GroupName"]" />
+
 
 @section scripts{
-    <script type="text/javascript" src="~/Scripts/jquery-ui.js"></script>
     <script src="/Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui.js"></script>
     <script src="~/Scripts/jquery.signalR-2.1.2.js"></script>
     <script src="~/signalr/hubs"></script>
     <script src="~/Scripts/whiteboard_1.js" type="text/javascript"></script>

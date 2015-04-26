@@ -116,6 +116,3 @@ C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\obj\Debug\Coll
 C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.dll
 C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.pdb
 C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.AspNet.SignalR.Owin.xml
-C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Net.Http.Formatting.xml
-C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.Http.xml
-C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.Http.WebHost.xml

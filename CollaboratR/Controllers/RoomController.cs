@@ -8,6 +8,7 @@ using CollaboratR.Hubs;
 using CollaboratR.Repositories;
 using System.Configuration;
 using CollaboratR.ViewModels;
+using CollaboratR.WhiteboardHub;
 
 namespace CollaboratR.Controllers
 {

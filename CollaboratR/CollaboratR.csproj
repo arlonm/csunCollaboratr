@@ -166,6 +166,7 @@
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="DataTools.cs" />
     <Compile Include="Enumerations.cs" />
+    <Compile Include="SignalR\WhiteboardHub.cs" />
     <Compile Include="Models\ModuleModel.cs" />
     <Compile Include="Models\RoomModel.cs" />
     <Compile Include="Models\RoomUserModel.cs" />
@@ -1258,10 +1259,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_Layout_Chat.cshtml" />
-    <Content Include="Views\Room\Join.cshtml" />
     <Content Include="Views\Room\Create.cshtml" />
     <Content Include="Views\Room\Browse.cshtml" />
     <Content Include="Views\Shared\_Layout_Browse.cshtml" />
+    <Content Include="Views\Room\Join.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

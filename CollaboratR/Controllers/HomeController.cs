@@ -10,7 +10,6 @@ namespace CollaboratR.Controllers
     [HandleError()]
     public class HomeController : Controller
     {
-
         public ActionResult Index()
         {
             return View();
@@ -30,5 +29,9 @@ namespace CollaboratR.Controllers
             return View();
         }
 
+        public ActionResult Whiteboard()
+        {
+            return View();
+        }
     }
 }
