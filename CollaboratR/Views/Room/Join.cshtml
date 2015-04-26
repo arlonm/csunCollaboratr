@@ -11,6 +11,37 @@
     .chatInput{ padding:5px; max-width:1000px !important; border: 1px solid #ccc;resize: none;border-radius: 3px;}
 </style>
 
+<style type="text/css">
+       #whiteboard {
+       border 1px dashed #cccccc;
+       margin 5px;
+       border-style dotted;
+       border-width 1px;
+       background-color #ffffff;
+       vertical-align top;
+       }
+       #container {
+       position relative;
+       overflow auto;
+       scrollbar-base-color #ffeaff;
+       }
+       #imagetemp {
+       position absolute;
+       top 1px;
+       left 1px;
+       margin 5px;
+       }
+       #imagetempt {
+       position absolute;
+       top 1px;
+       left 1px;
+       margin 5px;
+       }
+       .ui-widget-overlay {
+       opacity .70;
+       filter alpha(opacity=70);
+       }
+ </style>
 <div class="row">
     <div class="col-md-2" id="side-bar" style="padding-right:0px;" >
         <div class="row" id="user-space">
@@ -38,13 +69,42 @@
                     </div>
                 </div>
                 <div id="whiteBoardGrandParent" class="col-md-6">
-
+                    <table width="100%" id="tableWhiteBoard">
+                        <tr>
+                            <td style="width: 80%">
+                                <table style="vertical-align: top; width: 100%;" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <img id="imgline" style="border-color: Gray; border-style: dashed; width: 32px; height: 32px"
+                                                 src="/assets/images/line_dim.png" onclick="SelectTool('line'); return false;" />
+                                            <img id="imgpencil" style="border-color: Gray; border-style: dashed; width: 32px;
+                                             height: 32px" src="/assets/images/pencil_dim.png" onclick="SelectTool('pencil'); return false;" />
+                                            <img id="imgrect" style="border-color: Gray; border-style: dashed; width: 32px; height: 32px"
+                                                 src="/assets/images/rect_dim.png" onclick="SelectTool('rect'); return false;" />
+                                            <img id="imgerase" style="border-color: Gray; border-style: dashed; width: 32px;
+                                             height: 32px" src="/assets/images/erase_dim.png" onclick="SelectTool('erase'); return false;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: top;">
+                                            <div id="container" style="width: 420px; height: 800px">
+                                                <canvas id="whiteBoard"></canvas>
+                                                <div id="status">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            @*  *@
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
-  @*Modal*@ 
+  @*Modal*@
 <div class="modal fade" id="connection-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -68,8 +128,10 @@
 
 @section scripts{
     <script type="text/javascript" src="~/Scripts/jquery-ui.js"></script>
+    <script src="/Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
     <script src="~/Scripts/jquery.signalR-2.1.2.js"></script>
     <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/whiteboard_1.js" type="text/javascript"></script>
 
     <script type="text/javascript" >
 
@@ -166,7 +228,7 @@
             //Update a user's users list to show any new people who have joined
             collaborationHub.client.addUserToList = function (user) {
                 var userList = $('#user-list');
-                userList.append($('<a class=list-group-item>' + user.Username + '</a>'));               
+                userList.append($('<a class=list-group-item>' + user.Username + '</a>'));
             };
 
             collaborationHub.client.removeUserFromList = function (user) {
@@ -181,7 +243,7 @@
             collaborationHub.client.updateModuleContent = function (moduleData) {
                 $('#collaboration-space').children('.ui-dialog').each(function () {
                     if ($(this).data("moduleId") == moduleData.ModuleId) {
-                        
+
                         dispatchModuleUpdate($(this), moduleData);
                     }
                 });
@@ -272,7 +334,7 @@
                 }
             }
 
-            
+
             //Functionality For Modules
             var createChatModule = function (module, data) {
                 var chatObj = JSON.parse(data.ModuleContent);
