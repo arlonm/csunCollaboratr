@@ -166,7 +166,6 @@
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="DataTools.cs" />
     <Compile Include="Enumerations.cs" />
-    <Compile Include="SignalR\WhiteboardHub.cs" />
     <Compile Include="Models\ModuleModel.cs" />
     <Compile Include="Models\RoomModel.cs" />
     <Compile Include="Models\RoomUserModel.cs" />

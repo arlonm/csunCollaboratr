@@ -130,11 +130,11 @@
 
 
 @section scripts{
-    <script src="/Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
+    @*<script src="/Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>*@
     <script type="text/javascript" src="~/Scripts/jquery-ui.js"></script>
     <script src="~/Scripts/jquery.signalR-2.1.2.js"></script>
     <script src="~/signalr/hubs"></script>
-    <script src="~/Scripts/whiteboard_1.js" type="text/javascript"></script>
+    @*<script src="~/Scripts/whiteboard_1.js" type="text/javascript"></script>*@
 
     <script type="text/javascript" >
 
@@ -166,6 +166,7 @@
             //These values represent what is being updated by this user
             var updateRoom = false;
             var curModule = null;
+            //var canvas, context, canvaso, contexto;
 
             var roomIdentifierFromUrl = queryString["roomGuid"];
             var roomIdentifier = ( (roomIdentifierFromUrl != null && roomIdentifierFromUrl != "") ? queryString["roomGuid"] : $('#currentRoomId').val().trim());
@@ -242,6 +243,25 @@
                     }
                 });
             };
+            //whiteboard
+            collaborationHub.client.handleDraw = function (message, sessnId, name) {
+                var sessId = $('#sessinId').val();
+                if (sessId != sessnId) {
+                    $("#divStatus").html("");
+
+                    $("#divStatus").html("<i>" + name + " drawing...</i>")
+                    var drawObjectCollection = jQuery.parseJSON(message)
+                    for (var i = 0; i < drawObjectCollection.length; i++) {
+                        DrawIt(drawObjectCollection[i], false);
+                        if (drawObjectCollection[i].currentState) {
+                            if (drawObjectCollection[i].currentState == DrawState.Completed) {
+                                $("#divStatus").html("<i>" + name + " drawing completing...</i>")
+                                $("#divStatus").html("");
+                            }
+                        }
+                    }
+                }
+            }
 
             collaborationHub.client.updateModuleContent = function (moduleData) {
                 $('#collaboration-space').children('.ui-dialog').each(function () {
@@ -366,6 +386,68 @@
                 module.children('.chat-space').append('<a class="list-group-item">' + chatObj.log[chatObj.log.length - 1] + '</a>');
             }
 
+            //$(document).ready(function () {
+
+            //    //$(function() {
+            //    //    var name = $("#userName").val();
+
+            //    try {
+
+            //        canvaso = document.getElementById('whiteBoard');
+            //        if (!canvaso) {
+            //            alert('Error: Cannot find the imageView canvas element!');
+            //            return;
+            //        }
+
+            //        if (!canvaso.getContext) {
+            //            alert('Error: no canvas.getContext!');
+            //            return;
+            //        }
+            //        canvaso.width = 400;
+            //        canvaso.height = 700;
+
+            //        // Get the 2D canvas context.
+            //        contexto = canvaso.getContext('2d');
+            //        if (!contexto) {
+            //            alert('Error: failed to getContext!');
+            //            return;
+            //        }
+
+            //        // Add the temporary canvas.
+            //        var container = canvaso.parentNode;
+
+
+            //        canvas = document.createElement('canvas');
+            //        if (!canvas) {
+            //            alert('Error: Cannot create a new canvas element!');
+            //            return;
+            //        }
+
+            //        canvas.id = 'imageTemp';
+            //        canvas.width = canvaso.width;
+            //        canvas.height = canvaso.height;
+            //        container.appendChild(canvas);
+
+            //        context = canvas.getContext('2d');
+
+            //        // Activate the default tool.
+            //        SelectTool(tool_default);
+
+            //        // Attach the mousedown, mousemove and mouseup event listeners.
+            //        canvas.addEventListener('mousedown', ev_canvas, false);
+            //        canvas.addEventListener('mousemove', ev_canvas, false);
+            //        canvas.addEventListener('mouseup', ev_canvas, false);
+            //        canvas.addEventListener('mouseout', ev_canvas, false);
+            //        context.clearRect(0, 0, canvas.width, canvas.height);
+            //        toggleBG1();
+            //    }
+            //    catch (err) {
+            //        alert(err.message);
+            //    }
+
+            //});
         });
+
     </script>
+    <script src="~/Scripts/whiteboard_1.js" type="text/javascript"></script>
 }

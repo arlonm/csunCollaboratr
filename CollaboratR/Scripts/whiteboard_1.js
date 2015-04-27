@@ -11,7 +11,7 @@ var DrawTool =
     Rect :2,
     Erase: 3,
 }
-var whiteboardHub;
+var collaborationHub;
 var tool_default = 'pencil';
 var canvas, context, canvaso, contexto;
 
@@ -117,13 +117,13 @@ function DrawIt(drawObject, syncServer) {
        
     }
 
-    if (syncServer && drawObject.Tool != DrawTool.Pencil) {
+    //if (syncServer && drawObject.Tool != DrawTool.Pencil) {
 
-        drawObjectsCollection = [];
-        drawObjectsCollection.push(drawObject);
-        var message = JSON.stringify(drawObjectsCollection);
-        whiteboardHub.server.sendDraw(message, $("#sessinId").val(), $("#groupName").val(), $("#userName").val());
-    }
+    //    drawObjectsCollection = [];
+    //    drawObjectsCollection.push(drawObject);
+    //    var message = JSON.stringify(drawObjectsCollection);
+    //    collaborationHub.server.sendDraw(message, $("#sessinId").val(), $("#groupName").val(), $("#userName").val());
+    //}
 }
 
 function toggleBG1()
@@ -168,7 +168,10 @@ function UpdatePlayback(drawObject)
 }
    drawPlaybackCollection=[];
  }
-$(document).ready(function () {
+ $(document).ready(function () {
+
+     //$(function() {
+     //    var name = $("#userName").val();
 
     try {
     
@@ -329,14 +332,14 @@ tools.pencil = function () {
             DrawIt(drawObject, true);
             drawObjectsCollection.push(drawObject);
             var message = JSON.stringify(drawObjectsCollection);
-            whiteboardHub.server.sendDraw(message, $("#sessinId").val(),$("#groupName").val(),$("#userName").val());
+           // collaborationHub.server.sendDraw(message, $("#sessinId").val(),$("#groupName").val(),$("#userName").val());
 
         }
     };
     this.mouseout = function (ev) {
         if (tool.started) {
             var message = JSON.stringify(drawObjectsCollection);
-            whiteboardHub.server.sendDraw(message, $("#sessinId").val(),$("#groupName").val(),$("#userName").val());
+          //  collaborationHub.server.sendDraw(message, $("#sessinId").val(),$("#groupName").val(),$("#userName").val());
         }
         tool.started = false; 
 
@@ -583,46 +586,46 @@ function getAbsolutePosition(e) {
 var drawobjects = [];
 function JoinHub() {
 
-    $(function() {
-        var name = $("#userName").val();
+    //$(function() {
+    //    var name = $("#userName").val();
         //var name = $.trim(name);
 
         //if (name.length > 0) {
         //    $("#userName").val(name);
 
-    }
-        );
+    //}
+    //    );
 
-            whiteboardHub = $.connection.whiteboardHub;
-            whiteboardHub.client.handleDraw = function (message, sessnId, name) {
-                var sessId = $('#sessinId').val();
-                if (sessId != sessnId) {
-                    $("#divStatus").html("");
+            //whiteboardHub = $.connection.whiteboardHub;
+            //whiteboardHub.client.handleDraw = function (message, sessnId, name) {
+            //    var sessId = $('#sessinId').val();
+            //    if (sessId != sessnId) {
+            //        $("#divStatus").html("");
 
-                    $("#divStatus").html("<i>" + name + " drawing...</i>")
-                    var drawObjectCollection = jQuery.parseJSON(message)
-                    for (var i = 0; i < drawObjectCollection.length; i++) {
-                        DrawIt(drawObjectCollection[i], false);
-                        if (drawObjectCollection[i].currentState) {
-                            if (drawObjectCollection[i].currentState == DrawState.Completed) {
-                                $("#divStatus").html("<i>" + name + " drawing completing...</i>")
-                                $("#divStatus").html("");
-                            }
-                        }
-                    }
-                }
-
-
-
-            };
-            var sendMessage = function () {
-                whiteboardHub.sendChat($(".chat-message").val(), $("#groupName").val(), $("#userName").val());
-            };
+            //        $("#divStatus").html("<i>" + name + " drawing...</i>")
+            //        var drawObjectCollection = jQuery.parseJSON(message)
+            //        for (var i = 0; i < drawObjectCollection.length; i++) {
+            //            DrawIt(drawObjectCollection[i], false);
+            //            if (drawObjectCollection[i].currentState) {
+            //                if (drawObjectCollection[i].currentState == DrawState.Completed) {
+            //                    $("#divStatus").html("<i>" + name + " drawing completing...</i>")
+            //                    $("#divStatus").html("");
+            //                }
+            //            }
+            //        }
+            //    }
 
 
-            $.connection.hub.start().done(function () {
-                whiteboardHub.server.joinGroup($("#groupName").val()).done(function () { whiteboardHub.server.joinChat($("#userName").val(), $("#groupName").val()); });
-            });
+
+            //};
+            //var sendMessage = function () {
+            //    whiteboardHub.sendChat($(".chat-message").val(), $("#groupName").val(), $("#userName").val());
+            //};
+
+
+            //$.connection.hub.start().done(function () {
+            //    whiteboardHub.server.joinGroup($("#groupName").val()).done(function () { whiteboardHub.server.joinChat($("#userName").val(), $("#groupName").val()); });
+            //});
 
    
 
