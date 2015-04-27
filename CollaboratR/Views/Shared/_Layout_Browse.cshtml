@@ -146,8 +146,11 @@
             <div class="copyright">
                 <div class="container text-center fsize12">
                     <a href="#" target="_blank" title="bootstrap themes &amp; templates" class="copyright">CollaboratR</a> &bull; All Right Reserved &copy;&nbsp;
-                    <a href="page-privacy.html" class="fsize11">Privacy Policy</a> &bull;
-                    <a href="page-terms.html" class="fsize11">Terms of Service</a>
+                    <a href="About.html" class="fsize11">About</a> &bull;
+                    <a href="PrivacyPolicy.html" class="fsize11">Privacy Policy</a> &bull;
+                    <a href="Terms.html" class="fsize11">Terms of Service</a> &bull;
+                    <a href="Contact.html" class="fsize11">Contact us</a> &bull;
+                    <a href="UserManual.html" class="fsize11">User Manual</a>
                 </div>
             </div>
         </footer>
@@ -163,7 +166,7 @@
                     <h4 class="modal-title" id="myModalLabel">Log in</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Log in to an existing account. If you do not have one @Html.ActionLink("register one ", "", "") today!</p>
+                    <p>Log in to an existing account. If you do not have one @Html.ActionLink("register one ", "Register", "Account") today!</p>
                     <p id="msg-general" class=" alert-danger danger" hidden>This should be hidden</p>
                     <p id="msg-loginname" class="alert-danger danger" hidden>This should be hidden</p>
                     <input type="text" class="form-control" id="txt-loginname" placeholder="Username or Email" /><br />
@@ -189,6 +192,7 @@
     <script type="text/javascript" src="~/assets/plugins/owl-carousel/owl.carousel.min.js"></script>
     <script type="text/javascript" src="~/assets/plugins/knob/js/jquery.knob.js"></script>
     <script type="text/javascript" src="~/assets/plugins/flexslider/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Collaboratr/collaboratr.login.min.js"></script>
 
     @RenderSection("scripts", required: false)
     @*Google Analytics do not remove*@

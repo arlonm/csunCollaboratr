@@ -12,26 +12,24 @@ namespace CollaboratR.Hubs
     public class CollaborationHub : Hub
     {
         public static ConcurrentDictionary<string, RoomModel> CollaborationRooms = new ConcurrentDictionary<string, RoomModel>();
-        //Might change where the collaboration room structure is held.
-        //public static Dictionary<string, RoomModel> CollaborationRooms = new Dictionary<string,RoomModel>();
 
         public CollaborationHub()
         {
-            //Just some test code//////////////////////////////
-            ///////////////////////////////////////////////////
+
+            //Create a couple of demo rooms if nothing exists in context collection
             if (CollaborationRooms.Count == 0)
             {
-//                ModuleModel testMod1 = new ModuleModel();
-//                testMod1.ModuleId = 1;
-//                testMod1.ModuleTypeId = Constants.MODULE_TYPE_CHAT;
-//                testMod1.ModuleWidth = 200;
-//                testMod1.ModuleHeight = 200;
-//                testMod1.ModuleX = 100;
-//                testMod1.ModuleY = 100;
-//                testMod1.ModuleContent = ""+
-//"{"+
-//"   \"log\":[\"This is some test chat\", \"And this should come second\", \"Look at all of this chat\"]" +    
-//"}";
+                /*ModuleModel testMod1 = new ModuleModel();
+                testMod1.ModuleId = 1;
+                testMod1.ModuleTypeId = Constants.MODULE_TYPE_CHAT;
+                testMod1.ModuleWidth = 200;
+                testMod1.ModuleHeight = 200;
+                testMod1.ModuleX = 100;
+                testMod1.ModuleY = 100;
+                testMod1.ModuleContent = ""+
+                "{"+
+                    "   \"log\":[\"This is some test chat\", \"And this should come second\", \"Look at all of this chat\"]" +    
+                "}";*/
 
                 ModuleModel testMod2 = new ModuleModel();
                 testMod2.ModuleId = 2;
@@ -231,9 +229,10 @@ namespace CollaboratR.Hubs
             }
         }
 
-
+        //this is called thru js on join.cshtml load
         public  void LoadRoomUserList(string roomGuid)
         {
+            //if our context collection has this room
             if (CollaborationRooms.ContainsKey(roomGuid))
             {
                 RoomModel model = CollaborationRooms[roomGuid];

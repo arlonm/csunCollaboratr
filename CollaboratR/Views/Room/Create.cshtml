@@ -58,7 +58,7 @@
 
             //define the client side callback for the server method that creates the room
             collaborationHub.client.broadcastCreateRoomResult = function(roomGuid, userGuid, adminKey){
-
+                console.log("Here " + roomGuid + ", " + userGuid + ", " + adminKey);
                 var roomCreate_form = document.createElement('FORM');
                 roomCreate_form.name = 'roomCreateForm';
                 roomCreate_form.method = 'POST';

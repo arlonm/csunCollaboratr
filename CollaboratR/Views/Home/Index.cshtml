@@ -4,22 +4,22 @@
 <!-- PAGE TOP -->
 <section class="page-title">
     <div class="container">
-        <header>
+        <header style="text-align:center;" >
             <ul class="breadcrumb">
                 <!-- breadcrumb -->
-                <li class="active"><a href="#">Home</a></li>
+                <!--<li class="active"><a href="#">Home</a></li>-->
             </ul><!-- /breadcrumb -->
             <h2>
                 <!-- Page Title -->
                 Welcome to <strong>CollaboratR</strong>
             </h2><!-- /Page Title -->
-            <h6>Where you can collaborate, chat, and share information in <strong>real time</strong></h6>
+            <h6 style="margin-top:20px;" >Where you can collaborate, chat, and share information in <strong>real time</strong></h6>
         </header>
     </div>
     <br />
 </section>
 <div class="row">
-    <div class="col-md-12 col-sm-12 col-lg-12">
+    <div class="col-md-12 col-sm-12 col-lg-12" style="padding-top:20px;" >
         <h4 class="bold">Popular Rooms</h4>
         <div id="roomlistwrapper">
             <div id="roomlist" class="list-group">
@@ -31,21 +31,21 @@
 <div class="container">
         <br />
         <!-- CALLOUT -->
-        <div class="alert alert-default fade in">
-            <div class="row">
-                <div class="col-md-9 col-sm-9">
-                    <!-- left text -->
-                    <h4>Check out <strong><a>CollaboratR</a></strong></h4>
-                    <p>
-                        New to CollaboratR? Check our <a>FAQ</a> section for <a>new users.</a>
-                    </p>
-                </div><!-- /left text -->
-                <div class="col-md-3 col-sm-3 text-right">
-                    <!-- right btn -->
-                    <a href="#purchase" rel="nofollow" target="_blank" class="btn btn-primary btn-lg">Try it NOW!</a>
-                </div><!-- /right btn -->
-            </div>
+        @*<div class="alert alert-default fade in">
+        <div class="row">
+            <div class="col-md-9 col-sm-9">
+                <!-- left text -->
+                <h4>Check out <strong><a>CollaboratR</a></strong></h4>
+                <p>
+                    New to CollaboratR? Check our <a>FAQ</a> section for <a>new users.</a>
+                </p>
+            </div><!-- /left text -->
+            <div class="col-md-3 col-sm-3 text-right">
+                <!-- right btn -->
+                <a href="#purchase" rel="nofollow" target="_blank" class="btn btn-primary btn-lg">Try it NOW!</a>
+            </div><!-- /right btn -->
         </div>
+    </div>*@
         <!-- /CALLOUT -->
 </div>
 
@@ -65,6 +65,7 @@
             //A client function that populates the user's list with current popular rooms
             //meant for frontpage functionality
             collaborationHub.client.broadcastRooms = function (allRooms) {
+                console.log("Number of rooms returned: " + allRooms.length);
                 for (var i = 0; i < allRooms.length; i++)
                 {
                     //Foreach room that gets broadcasted append a new list item

@@ -66,7 +66,7 @@
                         @if (Request.IsAuthenticated) 
                         {
                             <div>Hello, @Utility.GetRequestUsername(User)</div>
-                        }
+                        }                        
                         else
                         {
                             <div><a data-toggle="modal" data-target="#login-modal">Log in</a></div>
@@ -121,12 +121,13 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <!--
                                 <li>
                                     <a href="#">About Us <span>Meet the creators.</span></a>
                                 </li>
                                 <li >
                                     <a href="#">Contact <span>Write to us.</span></a>
-                                </li>
+                                </li>  -->                              
                                 @if (Request.IsAuthenticated)
                                 {
                                     <li><a href="~/Account/Logout">Log out<span>Goodbye!</span></a></li>
@@ -134,8 +135,8 @@
                                 }
                                 else
                                 {
-                                    <li><a data-toggle="modal" class="nav nav-pills nav-right" data-target="#login-modal">Log in <span>Have an account?</span></a></li>
-                                    <li><a href="~/Account/Register" class="nav nav-pills nav-right">Register <span>Need one?</span></a></li>
+                                    @*<li><a data-toggle="modal" class="nav nav-pills nav-right" data-target="#login-modal">Log in <span>Have an account?</span></a></li>*@
+                                    <li><a href="~/Account/Register" class="nav nav-pills nav-right">Register <span>Try it out!</span></a></li>
                                 }
                             </ul>
                         </nav>
@@ -153,24 +154,24 @@
             <div class="container">
                 <div class="row">
                     <!-- col #1 -->
-                    <div class="logo_footer dark col-md-3">
-                        <p class="block">
-                            &bull; <a href="#">About us</a><br />
-                            &bull; <a href="#">Contact</a><br />
-                            &bull; <a href="#">Collaborate Now</a><br />
-                            &bull; <a href="#">Support Us</a><br />
-                        </p>
-                        <p class="block">
-                            <!-- social -->
-                            <a href="#" class="social fa fa-facebook"></a>
-                            <a href="#" class="social fa fa-twitter"></a>
-                            <a href="#" class="social fa fa-google-plus"></a>
-                            <a href="#" class="social fa fa-linkedin"></a>
-                        </p><!-- /social -->
-                    </div>
+                    @*<div class="logo_footer dark col-md-3">
+        <p class="block">
+            &bull; <a href="#">About us</a><br />
+            &bull; <a href="#">Contact</a><br />
+            &bull; <a href="#">Collaborate Now</a><br />
+            &bull; <a href="#">Support Us</a><br />
+        </p>
+        <p class="block">
+            <!-- social -->
+            <a href="#" class="social fa fa-facebook"></a>
+            <a href="#" class="social fa fa-twitter"></a>
+            <a href="#" class="social fa fa-google-plus"></a>
+            <a href="#" class="social fa fa-linkedin"></a>
+        </p><!-- /social -->
+    </div>*@
                     <!-- /col #1 -->
                     <!-- col #2 -->
-                    <div class="spaced col-md-3 col-sm-4 hidden-xs">
+                    <!--<div class="spaced col-md-3 col-sm-4 hidden-xs">
                         <h4>Learn about <strong>Partnership</strong></h4>
                         <ul class="list-unstyled">
                             @*<li>
@@ -186,10 +187,10 @@
                                 <small></small>
                             </li>
                         </ul>
-                    </div>
+                    </div>-->
                     <!-- /col #2 -->
                     <!-- col #3 -->
-                    <div class="spaced col-md-3 col-sm-4 hidden-xs">
+                    <!--<div class="spaced col-md-3 col-sm-4 hidden-xs">
                         <h4>Support Us <strong>Donate Now</strong></h4>
                         <ul class="list-unstyled fsize13">
                             <li>
@@ -197,15 +198,21 @@
                                 <small></small>
                             </li>
                         </ul>
-                    </div>
+                    </div>-->
                 </div>
+                <!-- /row -->
             </div>
+            <!--/container-->
+
             <hr />
-            <div class="copyright">
+            <div class="copyright" style="height:300px;">
                 <div class="container text-center fsize12">
                     <a href="#" target="_blank" title="bootstrap themes &amp; templates" class="copyright">CollaboratR</a> &bull; All Right Reserved &copy;&nbsp;
-                    <a href="page-privacy.html" class="fsize11">Privacy Policy</a> &bull;
-                    <a href="page-terms.html" class="fsize11">Terms of Service</a>
+                    <a href="~/Home/About" class="fsize11">About</a> &bull;
+                    <a href="~/Home/PrivacyPolicy" class="fsize11">Privacy Policy</a> &bull;
+                    <a href="~/Home/Terms" class="fsize11">Terms of Service</a> &bull;
+                    <a href="~/Home/Contact" class="fsize11">Contact us</a> &bull;
+                    <a href="~/Home/UserManual" class="fsize11">User Manual</a>
                 </div>
             </div>
         </footer>
@@ -225,7 +232,7 @@
                     <h4 class="modal-title" id="myModalLabel">Log in</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Log in to an existing account. If you do not have one @Html.ActionLink("register one ","","") today!</p>
+                    <p>Log in to an existing account. If you do not have one @Html.ActionLink("register one ", "Register", "Account") today!</p>
                     <p id="msg-general" class=" alert-danger danger" hidden>This should be hidden</p>
                     <p id="msg-loginname" class="alert-danger danger" hidden>This should be hidden</p>
                     <input type="text" class="form-control" id="txt-loginname" placeholder="Username or Email"/><br />

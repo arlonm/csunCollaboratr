@@ -30,26 +30,32 @@ namespace CollaboratR.Controllers
         {
             return View();
         }
-        //roomGuid=b4e8dbfe-9938-4d79-97e4-bf91e84183a9&userGuid=a0e827d6-f317-432a-9f4b-52e4d1e006bf&adminKey=TTWlDvU4DzFRLGJjzR0orCzVsbiE4wV75%2FTrVd1XFEPi9IC5XAGvrU60n3O3HkKvICsPhftKa2owKScBTbpT%2BRgfgNmcblArJgRp0EORxMixOzWyR49ImIgWiTLZrWCUYKZbl51pE7Hb5F724JsmnmReTxGFobKI1uhQheUdUXg%3D
+        public ActionResult Browse()
+        {
+            return View();
+        }
+
+        //this recieves the form data from create.cshtml
         [HttpPost]
         public ActionResult Join(String RoomGuid = "", String UserGuid = "", String AdminKey = "")
         {
-            
-            if(String.IsNullOrEmpty(RoomGuid) || String.IsNullOrEmpty(UserGuid) || String.IsNullOrEmpty(AdminKey))
+
+            if (String.IsNullOrEmpty(RoomGuid) || String.IsNullOrEmpty(UserGuid) || String.IsNullOrEmpty(AdminKey))
             {
-                return Join(RoomGuid, UserGuid);
+                return RedirectToAction("Index", "Error", new { msg = "Error at Join Post - a var is nullorempty" });
+                //TODO: Add admin key logic.
             }
-            return Join(RoomGuid, UserGuid);
-            //TODO: Add admin key logic.
-            //return View();
+            else return Join(RoomGuid, UserGuid);
+
         }
 
         [HttpGet]
         public ActionResult Join(String RoomId = "", String Username = "")
         {
+
             if (Hubs.CollaborationHub.CollaborationRooms == null || !Hubs.CollaborationHub.CollaborationRooms.ContainsKey(RoomId))
             {
-                return RedirectToAction("Index", "Error", new { msg = "Room doesn't exist"});
+               return RedirectToAction("Index", "Error", new { msg = "Room doesn't exist"});
             }
             //TODO implement this logic.
             /*
@@ -64,7 +70,7 @@ namespace CollaboratR.Controllers
             RoomViewModel roomViewModel = new RoomViewModel();
             roomViewModel.Room = Hubs.CollaborationHub.CollaborationRooms[RoomId];
             roomViewModel.JoiningUser = new RoomUserModel();
-            roomViewModel.JoiningUser.UserGuid = Guid.NewGuid().ToString();
+            roomViewModel.JoiningUser.UserGuid = Guid.NewGuid().ToString();//this creates a new guid every time it loads for even the same user
             //Identify user information 
             if (Request.IsAuthenticated)
             {
@@ -96,10 +102,6 @@ namespace CollaboratR.Controllers
             }
         }
 
-        public ActionResult Browse()
-        {
-            return View();
-        }
 	}
 
 }
