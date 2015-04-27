@@ -63,10 +63,10 @@
                 <div class="container">
                     <div class="pull-right fsize13 margin-top10 hide_mobile">
                         <!--Logged in indicator-->
-                        @if (Request.IsAuthenticated) 
+                        @if (Request.IsAuthenticated)
                         {
                             <div>Hello, @Utility.GetRequestUsername(User)</div>
-                        }                        
+                        }
                         else
                         {
                             <div><a data-toggle="modal" data-target="#login-modal">Log in</a></div>
@@ -74,14 +74,19 @@
                         <!-- mail , phone -->
                         <a href="mailto:support@collaboratr.net">support@collaboratr.net</a> &bull; 1-800-555-1234
                         <div class="block text-right">
-                            <!-- social -->
                             <a href="#" class="social fa fa-facebook"></a>
                             <a href="#" class="social fa fa-twitter"></a>
                             <a href="#" class="social fa fa-google-plus"></a>
                             <a href="#" class="social fa fa-linkedin"></a>
                             <a href="#" class="social fa fa-pinterest"></a>
-                        </div><!-- /social -->          
+                        <br />
+                            <a class="questionMark" href="~/Home/UserManual">
+                                User Manual and FAQ
+                                <img src="/assets/images/question.png" height="40" width="40" alt="" />
+                                </a>
                     </div>
+                    </div>
+
                     <!-- Logo -->
                     <a class="logo" href="/Home/">
                         <img src="/assets/images/finallogo.png" height="100" alt="" />
