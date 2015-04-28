@@ -834,6 +834,7 @@
     <Content Include="Assets\images\patterns\pattern7.png" />
     <Content Include="Assets\images\patterns\pattern8.png" />
     <Content Include="Assets\images\patterns\pattern9.png" />
+    <Content Include="Assets\images\question.png" />
     <Content Include="Assets\images\revolution_slider\assets\arrowleft.png" />
     <Content Include="Assets\images\revolution_slider\assets\arrowright.png" />
     <Content Include="Assets\images\revolution_slider\assets\arrow_large_left.png" />

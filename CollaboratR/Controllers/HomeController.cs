@@ -18,14 +18,39 @@ namespace CollaboratR.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Collaboratr Mission Statement";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "We want your feedback!";
+
+            return View();
+        }
+
+        public ActionResult UserGuide()
+        {
+            ViewBag.Message = "New to collaboratr?";
+
+            return View();
+        }
+        public ActionResult PrivacyPolicy()
+        {
+            ViewBag.Message = "Privacy Policy";
+
+            return View();
+        }
+        public ActionResult Terms()
+        {
+            ViewBag.Message = "Terms of Service";
+
+            return View();
+        }
+        public ActionResult UserManual()
+        {
+            ViewBag.Message = "User Manual & FAQ";
 
             return View();
         }

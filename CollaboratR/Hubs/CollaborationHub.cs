@@ -225,7 +225,7 @@ namespace CollaboratR.Hubs
                      where mod.ModuleId == moduleId
                      select mod).ElementAt(0);
                 module.ModuleContent = content;
-                Clients.Group(roomGuid).updateModuleContent(module);
+                //Clients.Group(roomGuid).updateModuleContent(module);
             }
             catch
             {
@@ -266,6 +266,11 @@ namespace CollaboratR.Hubs
 
             //also maybe save messages-to-groupname, maybe for a history mechanism
         }
+        
+        public void SendDraw(string drawObject, string sessionId, string groupName, string name)
+        {
+            Clients.Group(groupName).HandleDraw(drawObject, sessionId, name);
+        }         
 
     }
 }
