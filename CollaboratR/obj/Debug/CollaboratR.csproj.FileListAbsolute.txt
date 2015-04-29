@@ -115,4 +115,3 @@ C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web
 C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.csprojResolveAssemblyReference.cache
 C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.dll
 C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.pdb
-C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.AspNet.SignalR.Owin.xml

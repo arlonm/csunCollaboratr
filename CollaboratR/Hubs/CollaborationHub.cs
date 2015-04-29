@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 using System.Collections.Concurrent;
 using System.Web;
 using CollaboratR.Models;
-using Microsoft.AspNet.SignalR.Hubs;
-
-
 
 namespace CollaboratR.Hubs
 {
-    //[HubName("collaborationHub")]
     public class CollaborationHub : Hub
     {
         public static ConcurrentDictionary<string, RoomModel> CollaborationRooms = new ConcurrentDictionary<string, RoomModel>();
@@ -229,7 +225,7 @@ namespace CollaboratR.Hubs
                      where mod.ModuleId == moduleId
                      select mod).ElementAt(0);
                 module.ModuleContent = content;
-                Clients.Group(roomGuid).updateModuleContent(module);
+                //Clients.Group(roomGuid).updateModuleContent(module);
             }
             catch
             {
@@ -270,16 +266,11 @@ namespace CollaboratR.Hubs
 
             //also maybe save messages-to-groupname, maybe for a history mechanism
         }
+        
         public void SendDraw(string drawObject, string sessionId, string groupName, string name)
         {
             Clients.Group(groupName).HandleDraw(drawObject, sessionId, name);
-        }
-        public void JoinGroup(string groupName)
-        {
+        }         
 
-            Groups.Add(Context.ConnectionId, groupName);
-
-
-        }
     }
 }
