@@ -76,6 +76,45 @@ C:\Stuff\Collaboratr devArlon\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.
 C:\Stuff\Collaboratr devArlon\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.dll
 C:\Stuff\Collaboratr devArlon\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.pdb
 C:\Stuff\Collaboratr devArlon\csunCollaboratr\CollaboratR\bin\CollaboratR.dll.config
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\CollaboratR.dll.config
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\CollaboratR.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\CollaboratR.pdb
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Antlr3.Runtime.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\BCrypt.Net.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\DevOne.Security.Cryptography.BCrypt.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.Owin.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.Owin.Security.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Newtonsoft.Json.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Owin.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.Helpers.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.Mvc.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.Optimization.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.Razor.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.WebPages.Deployment.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.WebPages.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.WebPages.Razor.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\WebGrease.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\BCrypt.Net.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.Owin.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Microsoft.Owin.Security.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\Newtonsoft.Json.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.Helpers.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.Mvc.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.Optimization.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.Razor.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.WebPages.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.WebPages.Deployment.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\bin\System.Web.WebPages.Razor.xml
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.csprojResolveAssemblyReference.cache
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.dll
+C:\Users\John\Google Drive\Repository\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.pdb
 C:\Users\Ross\Desktop\Collaboratr\csunCollaboratr\CollaboratR\bin\CollaboratR.dll.config
 C:\Users\Ross\Desktop\Collaboratr\csunCollaboratr\CollaboratR\bin\CollaboratR.dll
 C:\Users\Ross\Desktop\Collaboratr\csunCollaboratr\CollaboratR\bin\CollaboratR.pdb
@@ -115,42 +154,3 @@ C:\Users\Ross\Desktop\Collaboratr\csunCollaboratr\CollaboratR\bin\System.Web.Web
 C:\Users\Ross\Desktop\Collaboratr\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.csprojResolveAssemblyReference.cache
 C:\Users\Ross\Desktop\Collaboratr\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.dll
 C:\Users\Ross\Desktop\Collaboratr\csunCollaboratr\CollaboratR\obj\Debug\CollaboratR.pdb
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\CollaboratR.dll.config
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\CollaboratR.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\CollaboratR.pdb
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Antlr3.Runtime.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\BCrypt.Net.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\DevOne.Security.Cryptography.BCrypt.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Microsoft.AspNet.SignalR.Core.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Microsoft.Owin.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Microsoft.Owin.Security.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Newtonsoft.Json.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Owin.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.Helpers.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.Mvc.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.Optimization.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.Razor.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.WebPages.Deployment.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.WebPages.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.WebPages.Razor.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\WebGrease.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\BCrypt.Net.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Microsoft.AspNet.SignalR.Core.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Microsoft.Owin.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Microsoft.Owin.Security.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\Newtonsoft.Json.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.Helpers.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.Mvc.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.Optimization.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.Razor.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.WebPages.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.WebPages.Deployment.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\bin\System.Web.WebPages.Razor.xml
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\obj\Debug\CollaboratR.csprojResolveAssemblyReference.cache
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\obj\Debug\CollaboratR.dll
-C:\Users\Ross\Desktop\Collaboratr\Collaboratr\CollaboratR\obj\Debug\CollaboratR.pdb

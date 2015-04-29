@@ -29,6 +29,7 @@ namespace CollaboratR.Controllers
 
             return View();
         }
+
         public ActionResult UserGuide()
         {
             ViewBag.Message = "New to collaboratr?";
@@ -53,5 +54,6 @@ namespace CollaboratR.Controllers
 
             return View();
         }
+
     }
 }

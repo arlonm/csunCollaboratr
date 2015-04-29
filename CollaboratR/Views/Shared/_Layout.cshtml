@@ -42,7 +42,7 @@
     <link href="~/assets/css/header-default.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/css/footer-default.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/css/color_scheme/red.css" rel="stylesheet" type="text/css" id="color_scheme" />
-  
+
     <script type="text/javascript" src="/assets/plugins/modernizr.min.js"></script>
 
     <!--[if lte IE 8]>
@@ -71,7 +71,7 @@
                         {
                             <div><a data-toggle="modal" data-target="#login-modal">Log in</a></div>
                         }
-                        <!-- mail , phone -->
+                        <!-- mail , phone, help social -->
                         <a href="mailto:support@collaboratr.net">support@collaboratr.net</a> &bull; 1-800-555-1234
                         <div class="block text-right">
                             <a href="#" class="social fa fa-facebook"></a>
@@ -79,12 +79,12 @@
                             <a href="#" class="social fa fa-google-plus"></a>
                             <a href="#" class="social fa fa-linkedin"></a>
                             <a href="#" class="social fa fa-pinterest"></a>
-                        <br />
+                            <br />
                             <a class="questionMark" href="~/Home/UserManual">
                                 User Manual and FAQ
                                 <img src="/assets/images/question.png" height="40" width="40" alt="" />
-                                </a>
-                    </div>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Logo -->
@@ -112,7 +112,7 @@
                                         Home <span>Welcome</span>
                                     </a>
                                 </li>
-                                <li class="dropdown"> 
+                                <li class="dropdown">
                                     <a class="dropdown-toggle" href="#">Collaborate <span>Create a session!</span></a>
                                     <ul class="dropdown-menu">
                                         <li>
@@ -122,7 +122,7 @@
                                             <a>Find a Room</a>
                                         </li>
                                         <li>
-                                            <a href="~/Room/Browse" >Browse</a>
+                                            <a href="~/Room/Browse">Browse</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -132,7 +132,7 @@
                                 </li>
                                 <li >
                                     <a href="#">Contact <span>Write to us.</span></a>
-                                </li>  -->                              
+                                </li>  -->
                                 @if (Request.IsAuthenticated)
                                 {
                                     <li><a href="~/Account/Logout">Log out<span>Goodbye!</span></a></li>
@@ -160,20 +160,20 @@
                 <div class="row">
                     <!-- col #1 -->
                     @*<div class="logo_footer dark col-md-3">
-        <p class="block">
-            &bull; <a href="#">About us</a><br />
-            &bull; <a href="#">Contact</a><br />
-            &bull; <a href="#">Collaborate Now</a><br />
-            &bull; <a href="#">Support Us</a><br />
-        </p>
-        <p class="block">
-            <!-- social -->
-            <a href="#" class="social fa fa-facebook"></a>
-            <a href="#" class="social fa fa-twitter"></a>
-            <a href="#" class="social fa fa-google-plus"></a>
-            <a href="#" class="social fa fa-linkedin"></a>
-        </p><!-- /social -->
-    </div>*@
+                            <p class="block">
+                                &bull; <a href="#">About us</a><br />
+                                &bull; <a href="#">Contact</a><br />
+                                &bull; <a href="#">Collaborate Now</a><br />
+                                &bull; <a href="#">Support Us</a><br />
+                            </p>
+                            <p class="block">
+                                <!-- social -->
+                                <a href="#" class="social fa fa-facebook"></a>
+                                <a href="#" class="social fa fa-twitter"></a>
+                                <a href="#" class="social fa fa-google-plus"></a>
+                                <a href="#" class="social fa fa-linkedin"></a>
+                            </p><!-- /social -->
+                        </div>*@
                     <!-- /col #1 -->
                     <!-- col #2 -->
                     <!--<div class="spaced col-md-3 col-sm-4 hidden-xs">
@@ -226,8 +226,6 @@
         <a href="#" id="toTop"></a>
 
     </div><!-- /#wrapper -->
-
-
     <!-- Modal -->
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -240,14 +238,14 @@
                     <p>Log in to an existing account. If you do not have one @Html.ActionLink("register one ", "Register", "Account") today!</p>
                     <p id="msg-general" class=" alert-danger danger" hidden>This should be hidden</p>
                     <p id="msg-loginname" class="alert-danger danger" hidden>This should be hidden</p>
-                    <input type="text" class="form-control" id="txt-loginname" placeholder="Username or Email"/><br />
+                    <input type="text" class="form-control" id="txt-loginname" placeholder="Username or Email" /><br />
                     <p id="msg-password" class="alert-danger danger" hidden>This should be hidden</p>
-                    <input type="password" class="form-control" id="txt-password" placeholder="Password"/><br />
+                    <input type="password" class="form-control" id="txt-password" placeholder="Password" /><br />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="btn-login">Log in</button>
-                    <img src="~/assets/images/ajax-loader.gif" id="login-loader"  hidden />
+                    <img src="~/assets/images/ajax-loader.gif" id="login-loader" hidden />
                 </div>
                 <br />
             </div>
@@ -256,7 +254,7 @@
 
     @Scripts.Render("~/bundles/jquery")
 
-     @*JAVASCRIPT FILES*@ 
+    @*JAVASCRIPT FILES*@
     <script type="text/javascript" src="/assets/plugins/jquery.isotope.js"></script>
     <script type="text/javascript" src="/assets/plugins/masonry.js"></script>
 
@@ -271,7 +269,7 @@
     <script type="text/javascript" src="~/Scripts/Collaboratr/collaboratr.login.min.js"></script>
 
     @RenderSection("scripts", required: false)
-    
+
     @*Google Analytics do not remove*@
     <script>
         (function (i, s, o, g, r, a, m) {

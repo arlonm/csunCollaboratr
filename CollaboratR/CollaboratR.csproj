@@ -834,6 +834,7 @@
     <Content Include="Assets\images\patterns\pattern7.png" />
     <Content Include="Assets\images\patterns\pattern8.png" />
     <Content Include="Assets\images\patterns\pattern9.png" />
+    <Content Include="Assets\images\question.png" />
     <Content Include="Assets\images\revolution_slider\assets\arrowleft.png" />
     <Content Include="Assets\images\revolution_slider\assets\arrowright.png" />
     <Content Include="Assets\images\revolution_slider\assets\arrow_large_left.png" />
@@ -1200,13 +1201,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\whiteboard_1.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Home\PrivacyPolicy.cshtml">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="Views\Home\Terms.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1233,6 +1229,8 @@
     <Content Include="Views\Room\Create.cshtml" />
     <Content Include="Views\Room\Browse.cshtml" />
     <Content Include="Views\Shared\_Layout_Browse.cshtml" />
+    <Content Include="Views\Home\PrivacyPolicy.cshtml" />
+    <Content Include="Views\Home\Terms.cshtml" />
     <Content Include="Views\Home\UserManual.cshtml" />
   </ItemGroup>
   <ItemGroup />
